@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git config *)",
+      "Bash(brew --version)",
+      "Bash(brew install *)",
+      "WebSearch",
+      "Read(//Users/chaissn/Downloads/**)",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}

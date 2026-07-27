@@ -1,0 +1,12 @@
+# Large reference material — not tracked (too big for git, rarely changes)
+_Source Library/
+HemoSim Base Files for Claude Learning/
+PA Catheter Topics/
+Salient articles for hemodynamics (not for course)/
+
+# Archived — live version is the GitHub hemosim-web repo
+web-pilot (ARCHIVED 2026-07-25 - live version is GitHub hemosim-web)/
+
+# macOS and Word noise
+.DS_Store
+~$*
