@@ -1,36 +1,95 @@
-# START HERE - HemoSim context folder
+# START HERE
 
-Purpose: this folder is the Claude-maintained context for the HemoSim project. If a chat's context window resets, read these files first to re-load the project state so nothing is lost. Last updated: 2026-07-12 (N1-N5 deep rebuild + N7 topic pages & N8 built from the PAC decks).
+Orientation and current status for HemoSim. Last updated: 2026-07-28.
+
+This file holds **current state only**. Standing rules live in `CLAUDE.md` at the
+folder root and load automatically every session. History and detail live in
+files 01 and 02. Keep this one short: if it stops being scannable in a minute,
+move the detail out.
 
 ## Read order
-1. `00 - START HERE.md` (this file) - orientation + current status.
-2. `01 - Project State and Content.md` - the project, its people, the document version history, the current outline structure, the sources, and the Notion hierarchy.
-3. `02 - Build Strategy and Decisions.md` - the web-build plan and the decisions we have locked (native Wix build, editing model, native vs Velo, how interactivity gets added).
 
-Also loaded automatically every session: the memory files (project-hemosim, response-style-neal, phi-onedrive-off-limits, user-neal-chaisson). Those hold the same core facts in condensed form.
+1. This file, for where things stand
+2. `01 - Project State and Content.md`, people, sources, Notion hierarchy (stale, see below)
+3. `02 - Build Strategy and Decisions.md`, build plan and locked decisions
+4. `03 - Git and GitHub Setup.md`, how version control works here
 
-## SOURCE LIBRARY (2026-07-22) - read this before any build work
-The project now has a durable, complete `_Source Library/` folder (in the Hemosim root, ~726 MB). It exists so build sessions draw on ALL source material without re-crawling. Contents:
-- `INGESTION PLAN.md` - the repeatable capture plan + status (all four source types captured).
-- `INDEX.md` - master index: per-module source manifest + figure catalogue + orphan list + gap report. **Read this to know which sources feed each module.**
-- `decks/` - all 9 PowerPoints as `.md` with slide text **+ speaker notes** (the big gap: Assessing Shock has notes on 49/51 slides, v2022 on 213) + `decks/images/` (374 figures named by deck+slide).
-- `docs/` - 6 source docx (Mastery Checklist, Proposal 2026, PAC Topic 1-4 question banks).
-- `notion/extracted/` - FULL Notion export: 93 markdown pages + 336 images + 2 CSV (the complete four-interface curriculum tree with all Clinical/Physiological Correlation onion-layer subpages). Archive zip alongside.
-- `wix/` - 29 published hemosim.org pages (the polished, REFERENCED form of the curriculum) + `_captured.md` index.
-- Re-run scripts (`extract_all.py`, `wix_capture.py`) live in the library; scratchpad copies are transient.
-**Build rule: do not rebuild a module from the V8 outline alone - open its sources in INDEX.md, including the speaker notes and the Wix published/referenced version.**
+Before any module build, also read `_Source Library/INDEX.md` to know which
+sources feed which module. Build rule: never rebuild a module from the V8 outline
+alone. Open its sources, including speaker notes and the published Wix version.
 
-## CURRENT STATE (2026-07-12)
-- **Latest outline: V8** (built from Neal's V7 review + the PAC topic docs). See file 01 for the V8 structure and file 02 for the build plan. V1-V7 are prior versions.
-- FOLDER REORG (2026-07-12): source files moved into subfolders - "HemoSim Base Files for Claude Learning" (decks/proposal), "Hemosim COntent Outlines for Wix Build" (outline v1-v8), "PA Catheter Topics" (Topic 1-4 docx + a "Additional PA Catheter Data" subfolder of PAC pptx decks). NOTE: the "Additional PA Catheter Data" pptx decks were 0 bytes at first, but Neal re-uploaded them and they are now SYNCED and in use (the Patrick Lindsay deck is the authoritative PAC source - see next bullet).
-- N7 is now built out into four submodule pages (n7-t1..t4, Topic 1-4); N8 (guided case) is built. **Two source types for N7:** (1) the Topic 1-4 .docx files are NOT teaching prose - they are board-style multiple-choice QUIZ BANKS (~20 Qs each with Correct Answer + Explanation), i.e. the sim-day COGNITIVE-TEST content (V7 C36: LMS test 10/20 >=90%). (2) The "Additional PA Catheter Data" pptx decks (previously 0 bytes) are now SYNCED and are the real teaching source. The **"PAC Modules Patrick Lindsay V1.pptx" (124 slides) is the authoritative deck** - a 7-module PAC course (M1 indications/contraindications/complications, M2 setup+anatomy, M3 insertion+waveforms, M4 PAOP/West-zones, M5 waveform changes, M6 troubleshooting, M7 thermodilution/Fick/SvO2, M8 hemodynamic-fingerprint cases) that maps cleanly onto our 4 topics. Supporting decks: "Pulmonary Artery Catheter- 1.pptx" (Arunachalam), "PULMONARY ARTERY CATHER BASED CARDIAC OUTPUT.pptx". **The N7 submodule pages were REBUILT (2026-07-12) from this deck content** (real indications/evidence incl. PAC-Man, contraindications incl. LBBB->CHB caution, PA-rupture prevention rules, lumen/port table, zero/level, insertion distances, end-expiration timing, troubleshooting incl. Chiari/coronary-sinus/coiling, RA/RV/PA/wedge waveform signatures + West zones + the PAOP=LAP=LVEDP assumption chain, thermodilution error sources, Fick equation, SvO2), so every cognitive-test item is covered in the modules (C36). Extracted deck text saved this session; re-extract from the pptx if needed.
-- **We are now building the Novice section.** The `web-pilot` folder holds the live demo: **Novice N1-N8 built (full spine complete)** - N1 what shock is, N2 oxygen delivery, N3 recognize/B.U.S., N4 big-picture closed loop + 4 interfaces, N5 Guyton/Frank-Starling curves -> unifying equation -> shock-type grid, "At the Bedside: RAP and volume status" offshoot, N6 ACT method with AHE inside the Test step, N7 PA catheter overview -> 4 mastery-topic subpages (T1 indications/anatomy/setup, T2 insertion/troubleshooting, T3 waveforms/wedging, T4 CO measurement), N8 guided case (79yo woman; walks ACT and carries the Guyton/Starling curves through to the shock-type grid - the "key task" payoff, V7 C37). Rail's final step "Put it together" now live -> n8.html. Connected-narrative style throughout. Real figures imported (ICU monitor on N3, circulatory-reservoir diagram on N4); labeled placeholders pending static export/import on N2 (DO2/VO2 curve), N5 (curve intersection), N7 topic pages (PAC components, insertion sequence, RA/RV/PA/wedge tracings, thermodilution curve), N8 (Guyton/Starling curves). Module Edit Docs regenerated for all 12 pages (N1-N7, N7-Topic1..4, N8). Novice spine is content-complete; remaining = static-figure import + Wix build.
-- **DEPTH REBUILD (2026-07-12):** Neal said the modules captured "only a fraction of the input data" and wanted much more depth across N1-N8, sourced from the V2022 deck, Notion, and Wix (not just the PAC decks). He chose: rebuild N1-N5 deep now (option 3, scoped to N1-N5), then he edits. Done: extracted the two big decks Neal named - "Assessing Shock 2024 with voice.pptx" (50 slides = the canonical Novice spine: DO2, B.U.S., the 4-interface unifying equation, the shock grid, ACT, the 79yo case, RAP/volume-responsiveness) and "Hemodynamics module v2022 full.pptx" (412 slides; the "Regulation of Circulatory Flow" module slides 43-67 is the deep N4/N5 physiology - reservoir, stressed/unstressed volume, Pms/MSFP, Bayliss-Starling, Hagen-Poiseuille, Guyton curve intercept/slope/plateau via vascular-waterfall/Starling-resistor, Frank-Starling shifts, operating point; the "Tools" module slides 69-107 = perfusion markers CRT/ANDROMEDA, mottling 0-5, ScvO2, CO2 gap + preload-responsiveness/fluid-challenge curve logic). N1-N5 rewritten ~2-3x longer with this depth (N1 ~670 words/4 sections, N2 ~570, N3 ~680, N4 ~770 incl. reservoir+Pms+VR gradient, N5 ~920/6 sections incl. full Guyton/Starling mechanics + preload responsiveness). **NOT yet done: Notion + Wix were NOT re-crawled this pass** (deck depth was strong and browser crawl is expensive); flagged to Neal to point at specific Notion/Wix passages still missing. N6-N8 left as prior drafts per Neal's scope. Extracted deck text saved to scratchpad (decks_n1n5.txt) - re-extract if the scratchpad was cleared.
-- **Writing standard (locked):** connected prose, NOT bullet dumps. Carry the module-to-module thread NATURALLY in the opening/closing prose - no boxed "recap" (removed as too mechanical) and no boxed "bridge" (softened to a plain closing sentence). Import real figures (deck = extract from the .pptx; Wix/Notion = pull via browser; animations = export a static frame). Log questionable figures / open questions in "HemoSim Graphics Follow-Up.md" (graphics + non-graphics sections).
-- **Editing workflow (locked):** per module there is a Word "edit doc" in the "Module Edit Docs" folder. Neal edits wording directly (track changes) and writes any layout/figure request in [brackets]; Claude applies wording to the page and layout notes to the CSS/styling, then regenerates. Wording is edited natively in the doc; styling is described in brackets (a Word file cannot set web formatting). Figure size default is capped at 520px wide.
-- **Two open items** in the V8 Appendix B "Needs your attention" are Informed/Expert-only (ANDROMEDA/Pinsky citations; the two new arterial modules' level) - Neal is following up with Gustavo; they do not block the Novice build.
-- **Build mechanics (scratchpad, transient):** the web-pilot pages are generated by `build_pilot_v8.py`; the Word edit docs by `make_edit_docs.py` (reads each web-pilot/n*.html, converts to an editable .docx); deck text is pulled by `pptx_text.py`. These live in the session scratchpad and are CLEARED between sessions. The durable artifacts are in the project folder: `web-pilot/*.html` (the rendered pages = current source of truth for content) and `Module Edit Docs/*.docx`. If the scripts are gone and a rebuild is needed, reconstruct them from the existing HTML/edit-doc structure. Page depth pattern to match (set by the N1-N5 rebuild): connected prose, several `<h2>` sections per module, equations in `<div class="eq">`, reference tables as `<table class="grid">`, figure gaps as `<div class="figframe">` placeholders citing the source slide.
+## The project in one paragraph
 
-## The one-paragraph situation
-Neal is building HemoSim, a free public tiered hemodynamics curriculum on Wix (hemosim.org), due Sept 1 2026. The content is captured in the V8 outline (Novice/Informed/Expert). We build the real site **natively in Wix** so Neal can edit content himself; the `web-pilot` HTML is the design template + narrative standard, not the content store. Interactive knowledge checks get added on top later as reviewable drop-in components. **The N1-N8 fresh rebuild is DONE (2026-07-23)** — all 8 Novice modules rebuilt deep from the full Source Library (deck slides + speaker notes, Notion, Wix), with real figures embedded, Wix wording/citations, same prose format; 12 Module Edit Docs regenerated; the flowing "Concept B" banner locked into the landing hero. Details + method in file 02 ("N1-N8 FRESH REBUILD — DONE"). **Next step: Neal reviews the rebuilt pages (open `web-pilot/index.html`) and/or the Module Edit Docs, and gives edits;** then optionally enrich the 4 N7 topic subpages with Notion/Wix, fill the remaining N2/N5/N6 figure placeholders, and move toward the native Wix build. (Superseded prior next-step below.)
-- ~~**Next step (ACTIVE, 2026-07-23): a FRESH REBUILD of all 8 Novice modules from the complete Source Library.**~~ Re-enrich N1-N5 (their earlier deep rebuild used deck *slide text only* - not the speaker notes / Notion / Wix now captured) and bring N6-N8 to the same depth, this time with **real figures embedded** (from `_Source Library/decks/images` + Notion images + Wix URLs), **Wix as the preferential source for final wording + reference lists**, a **more-active header + background/accent graphic** (Neal likes the clean look but the current title is too conservative), and **Neal's edits from the first few Module Edit Docs folded in**. Then regenerate all Module Edit Docs. Also: fix Topic 4 Q5 explanation (4.8→6.3) in the source docx; leave Topic 2 Q5/Q17 as-is; the N0 "Global Edit Doc" is to be ignored (its content was lost). **Full locked parameters + execution shape are in file `02 - Build Strategy and Decisions.md` (section "N1-N8 FRESH REBUILD").** The build scripts (build_pilot_v8.py, make_edit_docs.py) were wiped with the scratchpad and must be reconstructed from the surviving web-pilot HTML.
+Neal is building HemoSim, a free public tiered hemodynamics curriculum on Wix
+(hemosim.org), due September 1, 2026. Content is captured in the V8 outline
+(Novice, Informed, Expert). The real site gets built natively in Wix so Neal can
+edit it himself. The HTML pilot is the design template and narrative standard,
+not the content store. Interactive knowledge checks get added later as reviewable
+drop-in components.
+
+## Where things stand
+
+**Content: the Novice spine is complete.** N1 through N8 were rebuilt deep on
+2026-07-23 from the full Source Library (deck slides plus speaker notes, Notion,
+Wix), with real figures embedded and Wix as the preferential source for final
+wording and citations. Method and locked parameters are in file 02 under
+"N1-N8 FRESH REBUILD". Site content has not changed since that date.
+
+**Where the site code lives.** The pilot moved to its own private GitHub repo,
+`hemosim-web`, on 2026-07-24, checked out at `~/Claude/hemosim-web`. It has its
+own `CLAUDE.md`. The local `web-pilot` folder here was renamed ARCHIVED on
+2026-07-25 and is a frozen copy, not the live version. To view the pages, open
+`~/Claude/hemosim-web/index.html`.
+
+**Edit docs.** All 13 Module Edit Docs were regenerated on 2026-07-25 from the
+rebuilt pages. Neal edits wording directly in Word with track changes and writes
+layout or figure requests in [brackets]. Claude then applies wording to the page
+and layout notes to the CSS.
+
+**Review pass: in progress.** `N1 - Edit Doc.docx` was edited on 2026-07-27. None
+of those edits have been applied back to the site yet. The remaining modules
+appear to be awaiting review. *(Neal: confirm whether N1 is finished and ready to
+apply.)*
+
+**This folder is now under version control.** Set up 2026-07-28, pushed to the
+private repo `hemosim-content`. Working documents are tracked, the large
+reference folders are excluded. See file 03.
+
+## Next step
+
+Neal continues the review pass through the Module Edit Docs. As each is finished,
+Claude applies the wording and layout edits to the corresponding page in
+`hemosim-web`.
+
+After the review pass, in rough order: enrich the four N7 topic subpages from
+Notion and Wix, fill the remaining N2, N5, and N6 figure placeholders, then move
+toward the native Wix build.
+
+## Open items
+
+- **File 01 is stale.** Last updated 2026-07-12, and still describes the v6
+  outline as current when V8 is. Worth a rewrite when convenient.
+- **Two V8 Appendix B items** ("Needs your attention") are Informed and Expert
+  only: ANDROMEDA and Pinsky citations, and the level of the two new arterial
+  modules. Neal is following up with Gustavo. Neither blocks the Novice build.
+- **Graphics questions** are logged in `HemoSim Graphics Follow-Up.md`.
+- **Notion and Wix were not re-crawled** during the N1 to N5 depth pass. If
+  specific passages are still missing, point at them directly.
+
+## Conventions worth restating
+
+**Writing standard (locked):** connected prose, not bullet dumps. Carry the
+module-to-module thread naturally in the opening and closing prose. No boxed
+recap, no boxed bridge.
+
+**Figures:** deck figures come from the .pptx, Wix and Notion figures via
+browser, animations as an exported static frame. Default cap 520px wide.
+
+**Build scripts are durable and now tracked.** Five live at the root of
+`_Source Library/`: `make_edit_docs.py` (regenerates the Word edit docs from the
+HTML), `assemble_rebuild.py`, `extract_all.py` (deck extraction),
+`wix_capture.py`, and `banner_gen.py`. They are in git as of 2026-07-28.
+
+The one script not preserved is `build_pilot_v8.py`, which generated the pilot
+pages and was lost with an old scratchpad. If a full page rebuild is needed,
+reconstruct it from the existing HTML structure in `hemosim-web`.

@@ -1,5 +1,11 @@
-# Large reference material — not tracked (too big for git, rarely changes)
-_Source Library/
+# Large reference material, not tracked (too big for git, rarely changes).
+# Exception: the hand-maintained text and scripts at the root of _Source Library
+# are small, diff readably, and are expensive to lose, so they ARE tracked.
+_Source Library/*
+!_Source Library/INDEX.md
+!_Source Library/INGESTION PLAN.md
+!_Source Library/*.py
+
 HemoSim Base Files for Claude Learning/
 PA Catheter Topics/
 Salient articles for hemodynamics (not for course)/

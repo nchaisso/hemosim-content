@@ -51,15 +51,18 @@ They are separate because a repo tracks one folder, and these are two different 
 | `Hemosim COntent Outlines for Wix Build/` | 8 Word files: content outline v1 through v8 |
 | `_Claude Context/` | Project notes in Markdown, including this file |
 | root | `PAC Simulation Mastery Checklist - Student Handout.docx` |
-| root | `.gitignore`, `.claude/settings.local.json` |
+| root | `.gitignore`, `CLAUDE.md`, `.claude/settings.local.json` |
+| `_Source Library/` root only | `INDEX.md`, `INGESTION PLAN.md`, and the five `.py` build scripts |
 
-The rule of thumb: **documents you write and revise** are tracked.
+The rule of thumb: **documents you write and revise** are tracked, plus anything
+plain-text that is small, diffs readably, and would be expensive to lose.
 
 ## What is excluded, and why
 
 Listed in the `.gitignore` file:
 
-- `_Source Library/`, 1.0 GB
+- `_Source Library/`, 1.0 GB, **except** the two Markdown files and five `.py`
+  scripts at its root, which are tracked (see the table above)
 - `HemoSim Base Files for Claude Learning/`, 238 MB
 - `PA Catheter Topics/`, 60 MB
 - `Salient articles for hemodynamics (not for course)/`
