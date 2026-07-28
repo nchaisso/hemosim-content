@@ -1,15 +1,30 @@
 # -*- coding: utf-8 -*-
 # Convert each web-pilot page into an editable Word "edit doc" (prose + embedded small figures + [bracketed] layout notes).
 # Reconstructed 2026-07-23 after the scratchpad reset; kept here in the Source Library so it persists.
-import os, re, html as H
+import os, re, subprocess, tempfile, html as H
 from html.parser import HTMLParser
 from docx import Document
 from docx.shared import Pt, RGBColor, Inches
 
-BASE = '/Users/chaissn/Library/CloudStorage/GoogleDrive-neal.chaisson@gmail.com/My Drive/Claude/CCM/Fellowship/Hemosim'
-WP = os.path.join(BASE, 'web-pilot')
+# Paths updated 2026-07-28. The pages moved out of Dropbox into their own repo, and
+# Google Drive (the old BASE) is no longer used at all.
+WP = '/Users/chaissn/Claude/hemosim-web'
+BASE = '/Users/chaissn/Library/CloudStorage/Dropbox/Claude/CCM/Fellowship/Hemosim'
 OUT = os.path.join(BASE, 'Module Edit Docs')
 os.makedirs(OUT, exist_ok=True)
+
+
+def as_png(path):
+    """python-docx cannot embed SVG, so render a PNG copy via macOS QuickLook."""
+    if not path.lower().endswith('.svg'):
+        return path
+    cache = os.path.join(tempfile.gettempdir(), 'hemosim_svg_png')
+    os.makedirs(cache, exist_ok=True)
+    out = os.path.join(cache, os.path.basename(path) + '.png')
+    if not os.path.exists(out):
+        subprocess.run(['qlmanage', '-t', '-s', '1400', '-o', cache, path],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return out if os.path.exists(out) else None
 
 
 class P(HTMLParser):
@@ -116,7 +131,8 @@ def build(nfile, label):
             src = (data.get('img') or ''); cap = data.get('cap', '')
             path = os.path.join(WP, src) if src else ''
             try:
-                if path and os.path.exists(path): d.add_picture(path, width=Inches(3.1))
+                embed = as_png(path) if path and os.path.exists(path) else None
+                if embed: d.add_picture(embed, width=Inches(3.1))
                 else: note(d, '[figure image not found: %s]' % src)
             except Exception:
                 note(d, '[figure could not embed: %s]' % src)
@@ -134,5 +150,10 @@ mods = [('n1.html', 'N1'), ('n2.html', 'N2'), ('n3.html', 'N3'), ('n4.html', 'N4
         ('n7-t1.html', 'N7-Topic1-Indications'), ('n7-t2.html', 'N7-Topic2-Insertion'),
         ('n7-t3.html', 'N7-Topic3-Waveforms'), ('n7-t4.html', 'N7-Topic4-CardiacOutput'), ('n8.html', 'N8')]
 if __name__ == '__main__':
+    # No args regenerates every module. Pass labels (e.g. "N1 N4") to regenerate just those,
+    # so a single reviewed module can be refreshed without overwriting the others.
+    import sys
+    wanted = {a.upper() for a in sys.argv[1:]}
     for f, l in mods:
+        if wanted and l.upper() not in wanted: continue
         print('made', build(f, l))
