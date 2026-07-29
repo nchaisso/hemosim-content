@@ -13,6 +13,8 @@ move the detail out.
 2. `01 - Project State and Content.md`, people, sources, Notion hierarchy (stale, see below)
 3. `02 - Build Strategy and Decisions.md`, build plan and locked decisions
 4. `03 - Git and GitHub Setup.md`, how version control works here
+5. `04 - Module Edit Workflow.md`, the procedure for applying a reviewed edit doc
+   (read when a module comes back, not every session)
 
 Before any module build, also read `_Source Library/INDEX.md` to know which
 sources feed which module. Build rule: never rebuild a module from the V8 outline
@@ -46,10 +48,15 @@ rebuilt pages. Neal edits wording directly in Word with track changes and writes
 layout or figure requests in [brackets]. Claude then applies wording to the page
 and layout notes to the CSS.
 
-**Review pass: in progress.** `N1 - Edit Doc.docx` was edited on 2026-07-27. None
-of those edits have been applied back to the site yet. The remaining modules
-appear to be awaiting review. *(Neal: confirm whether N1 is finished and ready to
-apply.)*
+**Review pass: N1 applied, N2 to N8 awaiting review.** Neal edited
+`N1 - Edit Doc.docx` on 2026-07-27. Those edits were applied to the page and
+published on 2026-07-28 (`hemosim-web` commit `9a825a9`), which included two new
+hand-drawn SVG figures, the B.U.S. graphic, and linked references. The N1 edit
+doc was then regenerated from the updated page; Neal's annotated original is
+recoverable at `hemosim-content` commit `2d107f0`.
+
+The repeatable procedure for the remaining modules is
+`04 - Module Edit Workflow.md`. Follow it rather than improvising.
 
 **This folder is now under version control.** Set up 2026-07-28, pushed to the
 private repo `hemosim-content`. Working documents are tracked, the large

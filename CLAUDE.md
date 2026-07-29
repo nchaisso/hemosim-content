@@ -26,6 +26,11 @@ session that touches content:
 3. `02 - Build Strategy and Decisions.md`, the web build plan and locked decisions
 4. `03 - Git and GitHub Setup.md`, how version control here works
 
+**When Neal hands back a reviewed Module Edit Doc**, stop and read
+`_Claude Context/04 - Module Edit Workflow.md` first, then follow it in order.
+It is a procedure, not background, and it records several traps that cost time
+on the N1 pass. Do not improvise this from scratch.
+
 Then `_Source Library/INDEX.md` before any module build, to know which sources
 feed which module.
 
