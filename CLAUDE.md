@@ -1,5 +1,19 @@
 # HemoSim content library
 
+## Read the handoff first
+
+`~/Library/CloudStorage/Dropbox/Claude/_handoffs/hemosim.md` holds where the last
+session stopped and the single next action. Read it before anything else in this
+folder, including the files below.
+
+It is a baton, not a record. It is overwritten every session and is not version
+controlled, so nothing durable may live only there. If a session produces a
+decision worth keeping, write it into `_Claude Context/` and let the handoff
+merely point at it.
+
+Rule of thumb for which file a fact belongs in: if it will still be true in three
+months it belongs in `_Claude Context/`, otherwise it belongs in the handoff.
+
 ## Standing facts
 
 Home base: Claude is the cockpit, Dropbox is the file backbone, Notion is notes
