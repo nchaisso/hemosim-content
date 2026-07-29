@@ -189,9 +189,12 @@ re-crawling is usually unnecessary.
   recap, no boxed bridge.
 - **Figures:** deck figures from the .pptx, Wix and Notion figures via browser,
   animations as an exported static frame. Default cap 520px wide.
-- Website infrastructure: capture every case answer with timestamp and IP
-  identifier (no name), export to a spreadsheet at web-build time, add a user
-  sign-up link.
+- Website infrastructure: capture every case answer with a timestamp and an
+  opaque participant ID so one learner's answers link across modules, export to
+  Dropbox, and keep a user sign-up link prominent (signing up is what carries
+  progress across devices). Raw IP capture was dropped on 2026-07-30 in favour of
+  the participant ID. Full design in file 02 under "Linking one learner's answers
+  across modules".
 
 ## Open items
 
