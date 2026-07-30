@@ -1,7 +1,10 @@
 # 01 - Project State and Content
 
-Detail and history. Current status lives in `00 - START HERE.md`. Standing rules
-live in `CLAUDE.md` at the folder root. Last updated: 2026-07-28.
+Detail and history: the curriculum itself, who is involved, and where the source
+material came from. Current status lives in `00 - START HERE.md`. Build decisions
+and content standards live in `02 - Build Strategy and Decisions.md`. Standing
+rules live in `~/.claude/CLAUDE.md` and in `CLAUDE.md` at this folder's root.
+Last updated: 2026-07-30.
 
 ## Project snapshot
 
@@ -111,8 +114,8 @@ hierarchy (baseline July 3 recursive crawl); Appendix B open items, split into
 per-module source manifest, the figure catalogue, the orphan list, and the gap
 report. Read it before any module build rather than relying on the summary here.
 
-**Build rule:** never rebuild a module from the V8 outline alone. Open its
-sources in INDEX.md, including the speaker notes and the published Wix version.
+The build rules that govern how these sources are used, including source
+precedence when they disagree, are in file 02 under "Content standards".
 
 Principal sources:
 
@@ -140,9 +143,8 @@ Principal sources:
   source for final wording and reference lists.** Interface IV is fully built
   there and is the primary source for it.
 
-**Attribution rule (Neal, V5):** reference every source with a link. Attribute any
-graphic that has an attribution in Notion, Wix, or the slides. AI-generated Wix
-and Notion graphics need none. All pptx graphics need attribution if used.
+The attribution rule Neal set at V5 is recorded with the other build standards in
+file 02.
 
 ## Notion structure and access
 
@@ -184,63 +186,47 @@ re-crawling is usually unnecessary.
 - Naming: Interface III is "Capillaries to Right Atrium". Interface IV is "RV to LA".
 - Normotensive shock, pulse pressure, and etiology-versus-phenotype belong to the
   Informed "At the Bedside" module, deliberately kept out of the simple Novice grid.
-- **Writing standard (locked):** connected prose, not bullet dumps. Carry the
-  module-to-module thread naturally in the opening and closing prose. No boxed
-  recap, no boxed bridge.
-- **Figures:** deck figures from the .pptx, Wix and Notion figures via browser,
-  animations as an exported static frame. Default cap 520px wide.
-- Website infrastructure: capture every case answer with a timestamp and an
-  opaque participant ID so one learner's answers link across modules, export to
-  Dropbox, and keep a user sign-up link prominent (signing up is what carries
-  progress across devices). Raw IP capture was dropped on 2026-07-30 in favour of
-  the participant ID. Full design in file 02 under "Linking one learner's answers
-  across modules".
+
+The writing standard, the figure rules, and the answer-capture design are build
+decisions and live in file 02, under "Content standards" and "Linking one
+learner's answers across modules" respectively. They are not restated here.
 
 ## Open items
 
-- **Six pages predate the 2026-07-23 rebuild** and are still at the original
-  2026-07-13 depth: both Novice offshoots (`bedside-do2-vo2.html`,
-  `rap-volume.html`) and the four N7 topic pages. Bring them to the N1 to N8
-  depth standard when the review pass allows.
-- Confirm exact citations for ANDROMEDA-PEGASUS, ANDROMEDA-SHOCK 2, and the
-  Pinsky TPP figure. Do not fabricate.
-- Build the CVP Waveform Alterations page in Notion.
+Project-level open items are tracked in one place, `00 - START HERE.md`. Only
+content-authoring items specific to the source material are listed here.
+
+- Build the CVP Waveform Alterations page in Notion. It exists but is empty.
 - Create the Clinical Markers clinical example.
-- Remaining Appendix B cleanup items. The two under "Needs your attention" are
-  Informed and Expert only (the ANDROMEDA and Pinsky citations, and the level of
-  the two new arterial modules). Neal is following up with Gustavo. Neither
-  blocks the Novice build.
-- Notion and Wix were not re-crawled during the N1 to N5 depth pass. If specific
-  passages are still missing, point at them directly.
 
 ## Access mechanics and gotchas
 
-- PHI, Cleveland Clinic OneDrive, work SharePoint, and work email are off limits.
-  See `CLAUDE.md`.
-- Google Drive is not used. Everything is in Dropbox under /Claude.
+- The PHI wall and the retirement of Google Drive are global rules. See
+  `~/.claude/CLAUDE.md`.
 - Node is not installed. python-docx is, and is used to build the .docx files.
 - The browser extension forces https and cannot open local `file://` paths. To
   preview the site, open the HTML directly or serve it over local http.
 
-## Current file inventory (2026-07-28)
+## Current file inventory (2026-07-30)
 
 **In this folder** (`Dropbox/Claude/CCM/Fellowship/Hemosim`):
 
-- `CLAUDE.md`, standing rules, loads automatically.
-- `_Claude Context/`, files 00 to 03 plus `HemoSim Graphics Follow-Up.md`.
+- `CLAUDE.md`, the HemoSim standing rules, loads automatically.
+- `_Claude Context/`, files 00 to 04 plus `HemoSim Graphics Follow-Up.md`.
 - `_Source Library/` (1.0 GB), the durable capture: `INDEX.md`,
   `INGESTION PLAN.md`, `decks/` (9 decks as markdown with speaker notes, plus
   374 figures in `decks/images/`), `docs/` (6 source .docx), `notion/extracted/`,
-  `wix/` (29 published pages), and five build scripts.
-  The two Markdown files and the five `.py` scripts **are tracked in git**
-  (roughly 98 KB, they diff readably and are expensive to lose). Everything else
+  `wix/` (29 published pages), and six build scripts.
+  The two Markdown files and the six `.py` scripts **are tracked in git**
+  (roughly 100 KB, they diff readably and are expensive to lose). Everything else
   in the folder is excluded. The scripts are `make_edit_docs.py` (regenerates the
-  Word edit docs from the HTML), `assemble_rebuild.py`, `extract_all.py`,
-  `wix_capture.py`, and `banner_gen.py`. `build_pilot_v8.py`, which generated the
-  pilot pages, was lost with an old scratchpad and is not recoverable.
+  Word edit docs from the HTML), `read_edit_doc.py` (reads tracked changes out of
+  a returned doc), `assemble_rebuild.py`, `extract_all.py`, `wix_capture.py`, and
+  `banner_gen.py`. `build_pilot_v8.py`, which generated the pilot pages, was lost
+  with an old scratchpad and is not recoverable.
 - `Hemosim COntent Outlines for Wix Build/`, outline v1 through v8.
-- `Module Edit Docs/`, 13 Word edit docs (N1 to N8, the four N7 topics, and the
-  two offshoots).
+- `Module Edit Docs/`, 14 Word edit docs (N1 to N8, the four N7 topics, and the
+  two offshoots). Only 12 are script-managed; see file 02 under "Tooling".
 - `HemoSim Base Files for Claude Learning/` (238 MB), decks and proposal.
 - `PA Catheter Topics/` (60 MB), Topic 1 to 4 .docx plus the "Additional PA
   Catheter Data" pptx decks.

@@ -6,7 +6,7 @@ A reference for what was done and how to use it. Written to be readable cold, mo
 
 ## The one-paragraph version
 
-This Hemosim folder is now tracked by git, which saves a complete snapshot every time you commit. A copy of those snapshots lives on GitHub at `github.com/nchaisso/hemosim-content` (private). Your files stay in Dropbox exactly where they were, nothing moved. Only the 29 working documents are tracked. The 1.3 GB of reference material is deliberately excluded.
+This Hemosim folder is now tracked by git, which saves a complete snapshot every time you commit. A copy of those snapshots lives on GitHub at `github.com/nchaisso/hemosim-content` (private). Your files stay in Dropbox exactly where they were, nothing moved. Only the 40 working documents are tracked, about 7 MB. The 1.3 GB of reference material is deliberately excluded.
 
 ## The two commands you need
 
@@ -39,11 +39,11 @@ GitHub holds a **copy**, updated only when you push. It is an off-site backup an
 
 **`nchaisso/hemosim-content`** is this repo, holding the course documents. Created July 28, 2026. Lives in Dropbox at `Dropbox/Claude/CCM/Fellowship/Hemosim`.
 
-**`nchaisso/hemosim-web`** holds the code that runs the live website. Created July 24, 2026. It contains the project's authoritative `CLAUDE.md` (standing facts, PHI wall, writing style, citation rules). Its working copy on this Mac has not been located, only its presence on GitHub is confirmed. *(Open question, worth pinning down before the next website change.)*
+**`nchaisso/hemosim-web`** holds the code that runs the live website. Created July 24, 2026. Its working copy on this Mac is `~/Claude/hemosim-web`. It has its own `CLAUDE.md` covering the site build; the standing facts that apply everywhere live in `~/.claude/CLAUDE.md`, and each repo's own file covers only what is specific to it.
 
 They are separate because a repo tracks one folder, and these are two different folders holding two different kinds of work. Keeping them apart means each has a clean, readable history instead of website changes and document edits interleaved. This also matches the rule in the web repo's `CLAUDE.md`: that repo is not the content library, and binaries do not belong in it.
 
-## What is tracked: 29 files, about 7 MB
+## What is tracked: 40 files, about 7 MB
 
 | Location | Contents |
 |---|---|
@@ -52,7 +52,7 @@ They are separate because a repo tracks one folder, and these are two different 
 | `_Claude Context/` | Project notes in Markdown, including this file |
 | root | `PAC Simulation Mastery Checklist - Student Handout.docx` |
 | root | `.gitignore`, `CLAUDE.md`, `.claude/settings.local.json` |
-| `_Source Library/` root only | `INDEX.md`, `INGESTION PLAN.md`, and the five `.py` build scripts |
+| `_Source Library/` root only | `INDEX.md`, `INGESTION PLAN.md`, and the six `.py` build scripts |
 
 The rule of thumb: **documents you write and revise** are tracked, plus anything
 plain-text that is small, diffs readably, and would be expensive to lose.
@@ -61,7 +61,7 @@ plain-text that is small, diffs readably, and would be expensive to lose.
 
 Listed in the `.gitignore` file:
 
-- `_Source Library/`, 1.0 GB, **except** the two Markdown files and five `.py`
+- `_Source Library/`, 1.0 GB, **except** the two Markdown files and six `.py`
   scripts at its root, which are tracked (see the table above)
 - `HemoSim Base Files for Claude Learning/`, 238 MB
 - `PA Catheter Topics/`, 60 MB
@@ -96,6 +96,5 @@ Replacing manual version numbers is what git is *for*. The alternative workflow:
 ## Notes and open items
 
 - **One computer.** Git and Dropbox both version files and do not coordinate. On a single machine this is fine. If a second Mac ever enters the picture, revisit this, because Dropbox syncing the `.git` folder mid-operation across two machines can corrupt it.
-- **Locate the `hemosim-web` working copy** on this Mac.
-- **This folder has no `CLAUDE.md`.** Only `hemosim-web` does. A `CLAUDE.md` at a folder's root loads automatically at the start of every session, whereas the files in `_Claude Context/` do not. Adding one here would make the standing facts and the read order actually take effect.
 - **Standing preference:** Claude confirms which folders to include before each commit, since what matters may change over time.
+- A `CLAUDE.md` at a folder's root loads automatically at the start of every session, whereas the files in `_Claude Context/` do not. That is why the read order is stated in `CLAUDE.md` rather than only here.

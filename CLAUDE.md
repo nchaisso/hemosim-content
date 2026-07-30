@@ -1,34 +1,14 @@
 # HemoSim content library
 
+Global standing facts (PHI wall, Dropbox as file backbone, no Google Drive,
+writing style, handoff convention) live in `~/.claude/CLAUDE.md`. This file covers
+only what is specific to HemoSim.
+
 ## Read the handoff first
 
-`~/Library/CloudStorage/Dropbox/Claude/_handoffs/hemosim.md` holds where the last
-session stopped and the single next action. Read it before anything else in this
-folder, including the files below.
-
-It is a baton, not a record. It is overwritten every session and is not version
-controlled, so nothing durable may live only there. If a session produces a
-decision worth keeping, write it into `_Claude Context/` and let the handoff
-merely point at it.
-
-Rule of thumb for which file a fact belongs in: if it will still be true in three
-months it belongs in `_Claude Context/`, otherwise it belongs in the handoff.
-
-## Standing facts
-
-Home base: Claude is the cockpit, Dropbox is the file backbone, Notion is notes
-and knowledge, GitHub is for versioned and code work.
-
-PHI wall: this is a personal consumer Claude account with no BAA. Work OneDrive,
-work SharePoint, work email, and anything containing PHI stay walled off and are
-never connected. Never write PHI into this folder or either repo.
-
-Google Drive is not used. Do not read from or write to Google Drive. Everything
-was migrated to Dropbox under /Claude. If a task seems to require Drive, ask first.
-
-Writing style: never use em dashes or en dashes. Use commas, colons, periods, or
-parentheses. Graduate and professional level language. Direct and structured.
-This applies to chat replies and to every file written here.
+This workstream's handoff is `_handoffs/hemosim.md`. Read it before anything else
+in this folder, including the files below. Durable decisions belong in
+`_Claude Context/`, not in the handoff.
 
 ## Read this before any content work
 
