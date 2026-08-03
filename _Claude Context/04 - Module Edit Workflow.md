@@ -13,8 +13,8 @@ different kinds of change:
 
 - **Wording**, as Word tracked changes. Apply these to the page.
 - **Layout, figure, and reference instructions**, written inline in
-  **[square brackets]**, not as Word comments. Recent docs have no
-  `word/comments.xml` at all, so do not go looking for one.
+  **[square brackets]**.  
+  **Scan the Word files for any comments as well and apply them to the page.  
 
 Never edit the returned .docx. It is the record of what he asked for.
 
@@ -49,6 +49,8 @@ directly, matching existing markup and class names.
 applies to his own typed text too. He typed "So - " in the N1 closing; it was
 rendered as a comma and flagged rather than published as a dash. Normalize and
 tell him.
+
+** Minimize the unnecessary use of ;  
 
 **Watch for attribution.** He struck the `Source:` line under both N1 figures. If
 a figure is being replaced, that is obviously right. If the figure is staying,
@@ -121,8 +123,7 @@ Link every reference to its DOI, and add a free-full-text link only where a PMC
 record genuinely exists. Of N1's five, only Secomb 2016 had one
 (PMID 27065172, PMC4958049).
 
-**Never invent a DOI or a citation.** The full Cain 1965 reference was printed
-inside the source figure, and PubMed confirmed it (PMID 5837745). Report back
+**Never invent a DOI or a citation.**  Report back
 which references have no free version; he asks for this explicitly.
 
 ## Step 6. Look at the page

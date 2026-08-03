@@ -25,6 +25,12 @@ session that touches content:
 It is a procedure, not background, and it records several traps that cost time
 on the N1 pass. Do not improvise this from scratch.
 
+`_Claude Context/05 - Review Pass Contract.md` covers the multi-module review
+pass that began 2026-08-03: locked terminology, where the extracted figures are
+staged, which CSS classes exist, and what a module agent may not touch. Read it
+alongside 04 whenever more than one module is in flight. Delete it once the pass
+is finished and the durable parts have been folded into 02 and 04.
+
 Then `_Source Library/INDEX.md` before any module build, to know which sources
 feed which module.
 
@@ -52,8 +58,9 @@ and backed up by Dropbox instead.
 
 Physiology claims trace to primary sources. The named authorities for this
 curriculum are Jon Emile Kenny, Eduardo Kattan, Sheldon Magder, and Michael
-Pinsky. Never invent a citation, a value, or a waveform. If a claim cannot be
-sourced, flag it rather than asserting it.
+Pinsky. Use articles, websites, or books they authored when helpful. Never
+invent a citation, a value, or a waveform. If a claim cannot be sourced, flag it
+rather than asserting it.
 
 ## Working agreement
 
