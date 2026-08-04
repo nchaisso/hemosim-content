@@ -87,6 +87,13 @@ def run(label):
 
     dest = os.path.join(OUT, label)
     os.makedirs(dest, exist_ok=True)
+    # Clear previous output first. Images are renumbered in reading order every
+    # run, so when Neal adds or removes one the numbering shifts and any stale
+    # file left behind is silently wrong. On 2026-08-04 a leftover img01.png in
+    # a folder whose document had zero images sent a search down the wrong path.
+    for old in os.listdir(dest):
+        if old.startswith('img') or old == 'manifest.md':
+            os.remove(os.path.join(dest, old))
 
     rows, seq = [], 0
     for i, para in enumerate(paras):

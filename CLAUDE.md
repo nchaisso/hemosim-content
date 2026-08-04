@@ -62,6 +62,15 @@ Pinsky. Use articles, websites, or books they authored when helpful. Never
 invent a citation, a value, or a waveform. If a claim cannot be sourced, flag it
 rather than asserting it.
 
+**Check every trial against PubMed before writing about it, including facts you
+believe you already know.** Enrollment, which trial was largest, the primary
+outcome, whether the result was positive, neutral or harmful, the year, the
+journal, the PMID. Recalled trial facts read as confident and are often nearly
+right, which is exactly what makes them hard to catch in review. If it was not
+fetched in this session, it is not known. Procedure and the queries are in
+`_Claude Context/04 - Module Edit Workflow.md`, step 5, under "Recall is not a
+source", along with two worked examples of this going wrong.
+
 ## Working agreement
 
 Commit in small, described increments. Before any change that touches more than

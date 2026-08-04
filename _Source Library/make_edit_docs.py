@@ -27,6 +27,26 @@ def as_png(path):
     return out if os.path.exists(out) else None
 
 
+# Report a figure's real rendered width in the layout note.
+#
+# This used to be hardcoded as "capped at ~520px wide" regardless of the figure's
+# actual class, so a figure sitting at w400 was described to Neal as 520. He then
+# judged "make this bigger" against a number he had never actually been shown.
+# Caught on the N1 pass, 2026-08-03. Keep this table in step with style.css.
+FIG_WIDTHS = {
+    'w400': 'capped at 400px wide',
+    'w640': 'capped at 640px wide',
+    'wfull': 'full column width, about 750px',
+}
+
+
+def fig_width(cls):
+    for k, v in FIG_WIDTHS.items():
+        if k in (cls or '').split():
+            return v
+    return 'capped at 520px wide, the default'
+
+
 class P(HTMLParser):
     def __init__(s):
         super().__init__(); s.blocks = []; s.inmain = False
@@ -47,7 +67,7 @@ class P(HTMLParser):
         elif t == 'div' and 'eq' in c.split(): s.collect = 'eq'; s.buf = ''
         elif t == 'div' and 'figframe' in c: s.collect = 'figframe'; s.buf = ''
         elif t == 'figure': s.fig = {'img': None, 'cap': ''}
-        elif t == 'img' and s.fig is not None: s.fig['img'] = a.get('src')
+        elif t == 'img' and s.fig is not None: s.fig['img'] = a.get('src'); s.fig['cls'] = c
         elif t == 'figcaption': s.collect = 'figcap'; s.buf = ''
         elif t == 'div' and 'callout' in c: s.callout = {'txt': '', 'href': None}
         elif t == 'a' and s.callout is not None: s.callout['href'] = a.get('href')
@@ -137,7 +157,8 @@ def build(nfile, label):
             except Exception:
                 note(d, '[figure could not embed: %s]' % src)
             cp = d.add_paragraph(); r = cp.add_run(cap); r.font.size = Pt(9.5); r.font.color.rgb = RGBColor.from_string('777777')
-            note(d, '[Layout note: figure shown small here; on the web it is capped at ~520px wide. Say if you want it smaller/larger, moved, cropped, or replaced.]')
+            note(d, '[Layout note: figure shown small here. On the web it is currently %s. '
+                    'Say if you want it smaller/larger, moved, cropped, or replaced.]' % fig_width(data.get('cls', '')))
         elif kind == 'figframe':
             note(d, '[FIGURE PLACEHOLDER - to import at build: ' + re.sub(r'\s+', ' ', data) + ']', '9A6B00')
         elif kind == 'callout':

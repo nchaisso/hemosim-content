@@ -126,6 +126,44 @@ record genuinely exists. Of N1's five, only Secomb 2016 had one
 **Never invent a DOI or a citation.**  Report back
 which references have no free version; he asks for this explicitly.
 
+### Recall is not a source
+
+Inventing a citation is the obvious failure and it is easy to avoid. The failure
+that actually happens is subtler: writing down something you already "know" about
+a trial without checking it. It reads as confident, it is often nearly right, and
+nothing about the sentence signals that it was never verified.
+
+**Every factual claim about a trial goes through PubMed before it is written to a
+page.** Not just the citation string, the claim itself. That covers which trial
+was largest, how many patients were enrolled, what the primary outcome was,
+whether the result was positive, neutral or harmful, the year, the journal, and
+the PMID. If you did not fetch it in this session, you do not know it.
+
+The relevant field is in the `esummary` JSON already fetched above. For
+enrollment and findings, pull the abstract:
+
+```
+https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=<pmid>&rettype=abstract&retmode=text
+```
+
+Two failures from 2026-08-04, both caught only because Neal questioned them:
+
+- A page was written saying randomized trials had not shown benefit from PA
+  catheters, "the largest of which is PAC-Man". PAC-Man randomized 1041. Sandham
+  2003 randomized 1994, nearly twice as many. The ranking was fabricated by
+  recall. Neal also remembered an ARDS Network trial showing harm, which is FACTT
+  (2006, 1000 patients, more complications in the catheter arm). It was missing
+  from the page entirely.
+- A PMID recalled for the ESCAPE trial returned an unrelated review on dyspnoea
+  in the emergency department. Searching by author and title found the real paper.
+  A wrong PMID produces a citation that looks correct and points somewhere else,
+  which is worse than no citation because it survives review.
+
+**A search costs seconds. A wrong trial fact on a teaching site outlives the
+session that wrote it.** When a claim cannot be verified, write the page without
+it and say so, rather than softening it into something vague that is still
+unsourced.
+
 ## Step 6. Look at the page
 
 Do not skip this. Serve it and read it in a browser:
