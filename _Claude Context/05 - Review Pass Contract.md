@@ -36,8 +36,12 @@ These come from Neal and are not stylistic preferences to weigh:
 - **cardiac function curve**, never Starling curve. Naming the Frank-Starling
   curve once, parenthetically, where the concept is first introduced is fine.
 - **Pms**, not MSFP, wherever the change does not break a quoted equation.
-- Avoid overusing the word "honest". Avoid the semicolon; prefer a period, a
-  comma, or a colon.
+- Avoid overusing the word "honest".
+- **Semicolons.** Convert them in prose to a period, a comma, or a colon,
+  including ones Neal did not mark and ones that predate this pass. **Leave them
+  alone inside equation legends**, the `<small>` text under an `.eq` block, where
+  they separate list items (`Hb, hemoglobin (g/dL); SaO2, arterial saturation`)
+  rather than joining sentences. Neal confirmed this split on 2026-08-03.
 - **No em dashes and no en dashes anywhere**, including in text Neal typed
   himself. He typed "So - " in the N1 closing and it was rendered as a comma.
   Normalize silently and note it in your report.
@@ -87,21 +91,32 @@ The Physiologic Insights box is new in this pass and its icon is
 `.callout`, with a `<div class="tag">Physiologic insight</div>` where the
 At-the-Bedside box puts its bolded lead-in.
 
-## The variable colours, and the open question
+## The variable colours, settled
 
-Sampled from Neal's own figure (N5 `img01.png`): the cardiac function curve is
-**#A8034F** and the venous return curve is **#00B0F0**. Those two are settled.
+One colour per variable, not per role. These are read straight out of the cell
+shading Neal applied himself in the N5 edit doc, which is the table he means when
+he writes "the same colors I used for parameters in N5". Do not derive them from
+a figure and do not invent one for a variable not listed here.
 
-`--filling-ink` (#0077A6) is the darkened form of #00B0F0 for text, which needs
-the contrast. Use `--filling` itself only for swatches, rules, and figure strokes.
+| Variable | Class | Fill | Text |
+|---|---|---|---|
+| MAP | `.v-map` | `#EE0000` | `#C00000` |
+| CO | `.v-co` | `#FFC000` | `#8F6400` |
+| RAP | `.v-rap` | `#00B050` | `#00753A` |
+| PAPm | `.v-papm` | `#000000` | `#000000` |
+| LAP | `.v-lap` | `#F058CD` | `#B01E90` |
+| SVR | `.v-svr` | `#00B0F0` | `#006B96` |
 
-**Unresolved:** Neal asked for the shock-grid table headers to be colour-coded
-"as they are coded in the figure above", but the figure defines two colours and
-the tables carry up to six variables (MAP, CO, RAP, PAPm, LAP, SVR). The working
-assumption is three semantic roles, matching the labels Neal himself used in N3:
-flow (CO) takes `--flow`, filling (RAP and the other pressures) takes
-`--filling`, tone (SVR) takes `--tone`, which is a placeholder amber that Neal
-has not confirmed. Apply that mapping, and flag in your report that you did.
+Put the class on the `<th>`. The stylesheet then sets the text in the darkened
+form and the underline rule in Neal's exact fill, so the document's colour survives
+where it is visible and the header stays readable. You do not need to think about
+which is which. N3 and N5 carry the shading in their own docs; N6 and N8 do not,
+which is why they point back at N5.
+
+An earlier draft of this file inferred a three-role scheme from a figure. That was
+wrong, and it was caught by an agent checking the document rather than trusting
+the contract. If something here contradicts what is actually in Neal's file, the
+file wins. Say so in your report.
 
 ## Links to modules that do not exist yet
 
@@ -136,9 +151,11 @@ to find.
 
 Watch for two traps recorded from the N1 pass:
 
-- **Attribution.** If Neal struck a `Source:` line and the figure is being
-  replaced, that is right. If the figure is staying, say so, because every deck
-  graphic in use requires attribution.
+- **Attribution.** If Neal struck a `Source:` line, it stays struck. Do not
+  restore it and do not raise it, even when the figure is staying and file 01
+  would otherwise require attribution for a deck graphic. He ruled on this on
+  2026-08-03: a deletion he made himself is deliberate. This overrides step 3 of
+  file 04, which still tells you to flag it.
 - **Edits that invalidate their surroundings.** Changing a figure can falsify the
   caption, the attribution footer, and any prose that refers to it. Reread those
   after you edit.
