@@ -114,15 +114,16 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
 - **The Wix build has to reproduce four hand-drawn SVGs**: the Physiologic
   Insights icon, the West lung zones diagram, an RV pressure waveform and a
   redrawn right atrial tracing. They exist only as vector files in `hemosim-web`,
-  and the RV waveform in particular is drawn from stated ranges rather than
-  traced from a source, so it wants Neal's eye before it ships.
+  Neal approved the RV pressure waveform to ship on 2026-08-04; the other three
+  have not been formally signed off.
 - **Five figures carry stale text baked into the pixels** and cannot be fixed in
   HTML: MSFP on the N4 interface diagrams, "Starling curve" on the pleural
   pressure figure, and P_RA on the venous return series. Neal has said to ignore
   these for now. They need redrawing before launch.
-- **Unresolved bracketed requests** left deliberately unanswered: a capillary
-  refill demonstration video for N3, and the z-point removal request on N7-T2,
-  which was solved by redrawing rather than by editing the raster.
+- **The capillary refill demonstration video for N3** is a file in Dropbox and
+  gets uploaded to Wix at build time rather than added to the pilot, which does
+  not take binaries. The sentence on N3 is deliberately unlinked and marked in
+  the HTML. **Record the filename here before it is lost.**
 - **Links to intermediate modules** are marked in the HTML as
   `<!-- TODO-LINK: ... -->` on N4 and N8. They become real hrefs when those
   modules exist.
@@ -136,9 +137,6 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
   specific passages are still missing, point at them directly.
 - **Level selector behavior** for the Wix build: once a learner picks Novice, how
   locked in is that path versus free browsing? Decide during the build.
-- **`index.html` oversells the placeholders.** It still says figures appear as
-  labeled placeholders to import at build, which was true before 2026-07-23. Most
-  figures are now embedded. Fix the landing copy.
 
 ## Conventions
 
