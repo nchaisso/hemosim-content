@@ -120,10 +120,10 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
   HTML: MSFP on the N4 interface diagrams, "Starling curve" on the pleural
   pressure figure, and P_RA on the venous return series. Neal has said to ignore
   these for now. They need redrawing before launch.
-- **The capillary refill demonstration video for N3** is a file in Dropbox and
-  gets uploaded to Wix at build time rather than added to the pilot, which does
-  not take binaries. The sentence on N3 is deliberately unlinked and marked in
-  the HTML. **Record the filename here before it is lost.**
+- **Unanswered bracketed requests: none left.** The last one, a capillary refill
+  demonstration for N3, turned out to be a YouTube link rather than a Dropbox
+  file and is now live on the page (`youtu.be/aO3mqie46hQ`). The Wix build can
+  embed it natively rather than linking out, if Neal prefers that there.
 - **Links to intermediate modules** are marked in the HTML as
   `<!-- TODO-LINK: ... -->` on N4 and N8. They become real hrefs when those
   modules exist.
