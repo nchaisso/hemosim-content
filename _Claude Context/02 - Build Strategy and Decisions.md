@@ -45,6 +45,32 @@ reviewed edit doc is `04 - Module Edit Workflow.md`.
   none. All pptx graphics need attribution if used. Open questions are logged in
   `HemoSim Graphics Follow-Up.md`.
 
+### Page components and the variable colours, settled 2026-08-04
+
+The stylesheet in `hemosim-web` carries the components a module page is built
+from. Use the class, do not write an inline style.
+
+| Class | Use |
+|---|---|
+| *(none)* | figure capped at 520px, the default |
+| `.fig img.w400` / `.w640` / `.wfull` | smaller, larger, and full column width |
+| `.figpair` | two figures side by side, stacking under 640px |
+| `.callout` + `img.abicon` | the At the Bedside box |
+| `.callout.insight` + `img.insighticon` | the Physiologic Insights box, new in N7 |
+| `main ul` / `main h3` | body lists and subheads |
+| `.v-map` `.v-co` `.v-rap` `.v-papm` `.v-lap` `.v-svr` | shock-grid table headers |
+
+**The hemodynamic variable colours are Neal's, not a design choice.** They were
+read out of the cell shading he applied himself in the N5 edit doc: MAP `#EE0000`,
+CO `#FFC000`, RAP `#00B050`, PAPm `#000000`, LAP `#F058CD`, SVR `#00B0F0`. One
+colour per variable, not per role. Each has a darkened `-ink` pair used for text,
+because most fail contrast on white; the raw fill is used only for the underline
+rule and figure strokes. Put the class on the `<th>` and the stylesheet does the
+rest.
+
+An earlier attempt inferred a three-role scheme from a figure and was wrong. When
+a document and an assumption disagree, the document wins.
+
 This section is the single home for these rules. Files 00 and 01 point here rather
 than restating them.
 

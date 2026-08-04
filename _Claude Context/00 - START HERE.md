@@ -1,6 +1,6 @@
 # START HERE
 
-Orientation and current status for HemoSim. Last updated: 2026-07-30.
+Orientation and current status for HemoSim. Last updated: 2026-08-04.
 
 This file holds **current state only**. Standing rules live in two files that load
 automatically: `~/.claude/CLAUDE.md` for the global ones and `CLAUDE.md` at this
@@ -43,20 +43,36 @@ own `CLAUDE.md`. The local `web-pilot` folder here was renamed ARCHIVED on
 2026-07-25 and is a frozen copy, not the live version. To view the pages, open
 `~/Claude/hemosim-web/index.html`.
 
-**Edit docs.** There are 14 in `Module Edit Docs/`. All were regenerated on
-2026-07-25 from the rebuilt pages. Neal edits wording directly in Word with track changes and writes
-layout or figure requests in [brackets]. Claude then applies wording to the page
-and layout notes to the CSS.
+**Edit docs.** Twelve are script-managed and were regenerated from the current
+pages on 2026-08-04. Neal edits wording directly in Word with track changes and
+writes layout or figure requests in [brackets]. Claude then applies wording to the
+page and layout notes to the CSS.
 
-**Review pass: N1 applied, N2 to N8 awaiting review.** Neal edited
-`N1 - Edit Doc.docx` on 2026-07-27. Those edits were applied to the page and
-published on 2026-07-28 (`hemosim-web` commit `9a825a9`), which included two new
-hand-drawn SVG figures, the B.U.S. graphic, and linked references. The N1 edit
-doc was then regenerated from the updated page; Neal's annotated original is
-recoverable at `hemosim-content` commit `2d107f0`.
+As of 2026-08-04 the generated doc also carries the page's **reference list**, so
+it can be pruned during review. The split matters: the document decides *which*
+references appear, and PubMed decides *how* they read. See file 04, step 5.
 
-The repeatable procedure for the remaining modules is
-`04 - Module Edit Workflow.md`. Follow it rather than improvising.
+Two further docs, `N2-Offshoot-BedsideDO2VO2` and `N5-Offshoot-RAPVolume`, are not
+script-managed and are now **orphaned**: both offshoot pages were deleted on
+Neal's instruction during the review pass. They are kept only as the record of
+that instruction.
+
+**Review pass: complete for the Novice spine.** N1 through N8 plus N7 topics 1
+and 2 were all applied on 2026-08-03 and 2026-08-04, run as one module per agent
+with a shared contract, then a references pass and a read-only verification pass.
+Neal's annotated originals are recoverable at `hemosim-content` commits `c6f1bf1`
+and `2a4192b`.
+
+What changed beyond wording: the N2 and N5 offshoot pages were deleted, N4 gained
+five new sections, N7 gained the first Physiologic Insights box, and four figures
+were drawn from scratch as SVG (the insights icon, the West lung zones, an RV
+pressure waveform, and a redrawn right atrial tracing). Every citation on the site
+now resolves in PubMed.
+
+`N7-T3` and `N7-T4` have not been reviewed. They still sit at 2026-07-13 depth.
+
+The repeatable procedure is `04 - Module Edit Workflow.md`. Follow it rather than
+improvising.
 
 **This folder is now under version control.** Set up 2026-07-28, pushed to the
 private repo `hemosim-content`. Working documents are tracked, the large
@@ -64,9 +80,9 @@ reference folders are excluded. See file 03.
 
 ## Next step
 
-Neal continues the review pass through the Module Edit Docs. As each is finished,
-Claude applies the wording and layout edits to the corresponding page in
-`hemosim-web`.
+The Novice review pass is done. Next is Neal's read-through of the regenerated
+edit docs, which now include reference lists for the first time, followed by the
+two unreviewed topic pages (N7-T3, N7-T4).
 
 After the review pass, in rough order: enrich the four N7 topic subpages from
 Notion and Wix, fill the remaining N2, N5, and N6 figure placeholders, then move
@@ -84,9 +100,6 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
   modules. Neal is following up with Gustavo. Neither blocks the Novice build.
 - Confirm exact citations for ANDROMEDA-PEGASUS, ANDROMEDA-SHOCK 2, and the
   Pinsky TPP figure. Do not fabricate.
-- **N2 offshoot overlap.** The "At the Bedside: DO2/VO2 mismatch" detour overlaps
-  N3 on recognizing shock. Keep both, or fold the detour into N3? Currently kept
-  as an optional side path.
 - **N8 teaching case.** The guided case (79-year-old woman, hypovolemic pattern)
   and its single test number (low RAP, flat IVC) are placeholder quality. Confirm
   or swap in a preferred case.
@@ -98,9 +111,25 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
 
 **Ours to do**
 
-- **Six pages are still at 2026-07-13 depth**, predating the rebuild: both Novice
-  offshoots (`bedside-do2-vo2.html`, `rap-volume.html`) and the four N7 topic
-  pages. Bring them to the N1 to N8 standard when the review pass allows.
+- **The Wix build has to reproduce four hand-drawn SVGs**: the Physiologic
+  Insights icon, the West lung zones diagram, an RV pressure waveform and a
+  redrawn right atrial tracing. They exist only as vector files in `hemosim-web`,
+  and the RV waveform in particular is drawn from stated ranges rather than
+  traced from a source, so it wants Neal's eye before it ships.
+- **Five figures carry stale text baked into the pixels** and cannot be fixed in
+  HTML: MSFP on the N4 interface diagrams, "Starling curve" on the pleural
+  pressure figure, and P_RA on the venous return series. Neal has said to ignore
+  these for now. They need redrawing before launch.
+- **Unresolved bracketed requests** left deliberately unanswered: a capillary
+  refill demonstration video for N3, and the z-point removal request on N7-T2,
+  which was solved by redrawing rather than by editing the raster.
+- **Links to intermediate modules** are marked in the HTML as
+  `<!-- TODO-LINK: ... -->` on N4 and N8. They become real hrefs when those
+  modules exist.
+
+- **Two pages are still at 2026-07-13 depth**: `n7-t3.html` and `n7-t4.html`. The
+  two Novice offshoots that shared this problem were deleted rather than
+  deepened, and N7 topics 1 and 2 were brought up to standard in the review pass.
 - **Cross-check each N7 topic page against its question bank** once content is
   final, so no tested item is missing from the teaching text (V7 C36).
 - **Notion and Wix were not re-crawled** during the N1 to N5 depth pass. If

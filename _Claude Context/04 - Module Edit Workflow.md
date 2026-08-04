@@ -50,7 +50,18 @@ applies to his own typed text too. He typed "So - " in the N1 closing; it was
 rendered as a comma and flagged rather than published as a dash. Normalize and
 tell him.
 
-** Minimize the unnecessary use of ;  
+**Links to modules that do not exist yet.** Several instructions ask for a link
+to an intermediate module. Render the sentence as plain text with no anchor and
+mark the spot so it is greppable later:
+
+    <!-- TODO-LINK: intermediate module on the vascular waterfall (I8) -->
+
+Never a live href to a page that does not exist, and no visible "coming soon".
+
+**Semicolons.** Convert them in prose to a period, a comma or a colon, including
+ones that predate the pass. Leave them inside `<small>` equation legends, where
+they separate list items (`Hb, hemoglobin (g/dL); SaO2, arterial saturation`)
+rather than joining sentences. Neal confirmed this split on 2026-08-03.
 
 **Watch for attribution.** He struck the `Source:` line under both N1 figures. If
 a figure is being replaced, that is obviously right. If the figure is staying,
@@ -228,3 +239,28 @@ Propose it rather than waiting to be asked.
 - Six pages still date from 2026-07-13 and were not part of the July 23 rebuild:
   both Novice offshoots and the four N7 topic pages. Expect them to be thinner
   than N1 through N8.
+
+## Running more than one module at once
+
+The 2026-08-03 pass applied ten modules with one agent per module. What made it
+work, and what would break it:
+
+- **One agent owns one page.** Ten agents on ten pages never collide. Ten agents
+  on one shared stylesheet would, and a broken rule there breaks every page at
+  once. So agents may not edit `style.css`: define every class up front, and have
+  them report a missing one instead. Both real gaps this pass, body lists and
+  `h3`, surfaced that way and cost nothing.
+- **Agents do not run git and do not regenerate edit docs.** Commits need scope
+  confirmed with Neal each time, and a bare `make_edit_docs.py` destroys tracked
+  changes. Both stay central.
+- **References are one pass, not ten.** Per-module citation work drifts in format
+  and cannot see a citation orphaned on another page.
+- **The orchestrator reads reports, not pages.** That is what keeps the whole
+  thing inside one context.
+- **Tell agents that the document beats the instructions they were given.** The
+  colour scheme in this pass was wrong in the brief and right in Neal's file, and
+  an agent caught it only because it was told to check.
+- **A read-only verification pass at the end earns its keep.** It found a false
+  physiology claim created by a blanket find-and-replace, two duplicated
+  sentences, and an invalid HTML entity. It also produced one confident finding
+  that was wrong, so verify its claims before acting on them.

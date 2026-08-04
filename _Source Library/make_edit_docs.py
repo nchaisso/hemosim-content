@@ -52,15 +52,27 @@ class P(HTMLParser):
         super().__init__(); s.blocks = []; s.inmain = False
         s.collect = None; s.buf = ''; s.skip = 0
         s.fig = None; s.grid = None; s.row = None; s.bus = None; s.box = None; s.callout = None
+        s.refs = None
 
     def handle_starttag(s, t, attrs):
         a = dict(attrs); c = a.get('class', '')
         if t == 'main': s.inmain = True; return
         if not s.inmain: return
         if t == 'br' and s.collect: s.buf += '\n'; return
-        if t in ('div', 'p') and ('pager' in c or 'refs' in c or 'eyebrow' in c or 'attrib' in c):
+        # `refs` used to be skipped here alongside the page furniture. It is not
+        # furniture: skipping it left Neal with no way to see, prune or add a
+        # reference while reviewing, and the only reason that went unnoticed is
+        # that the older docs predate this script and still carry their lists.
+        # See the emitter below for the split between which references appear
+        # (this document decides) and how they read (PubMed decides).
+        if t in ('div', 'p') and ('pager' in c or 'eyebrow' in c or 'attrib' in c):
             s.skip += 1; return
         if s.skip: return
+        if t == 'div' and 'refs' in c.split(): s.refs = []; return
+        if t == 'li' and s.refs is not None: s.collect = 'refitem'; s.buf = ''; return
+        # Body lists arrived on the site 2026-08-03 (N7-T1's balloon safety list).
+        # Without this they parse to nothing and vanish from the review doc.
+        if t == 'li': s.collect = 'listitem'; s.buf = ''; return
         if t == 'h1': s.collect = 'h1'; s.buf = ''
         elif t == 'h2': s.collect = 'h2'; s.buf = ''
         elif t == 'p' and 'closing' in c: s.collect = 'closing'; s.buf = ''
@@ -91,6 +103,12 @@ class P(HTMLParser):
         if t in ('div', 'p') and s.skip:
             s.skip -= 1; return
         b = s.buf.strip()
+        if t == 'li' and s.collect == 'refitem':
+            s.refs.append(b); s.collect = None; return
+        if t == 'li' and s.collect == 'listitem':
+            s.blocks.append(('li', b)); s.collect = None; return
+        if t == 'div' and s.refs is not None and s.collect != 'refitem':
+            s.blocks.append(('refs', s.refs)); s.refs = None; return
         if t == 'h1' and s.collect == 'h1': s.blocks.append(('h1', b)); s.collect = None
         elif t == 'h2' and s.collect == 'h2': s.blocks.append(('h2', b)); s.collect = None
         elif t == 'p' and s.collect == 'closing': s.blocks.append(('closing', b)); s.collect = None
@@ -159,6 +177,36 @@ def build(nfile, label):
             cp = d.add_paragraph(); r = cp.add_run(cap); r.font.size = Pt(9.5); r.font.color.rgb = RGBColor.from_string('777777')
             note(d, '[Layout note: figure shown small here. On the web it is currently %s. '
                     'Say if you want it smaller/larger, moved, cropped, or replaced.]' % fig_width(data.get('cls', '')))
+        elif kind == 'li': d.add_paragraph(data, style='List Bullet')
+        elif kind == 'refs':
+            # The reference list is emitted so Neal can prune it, which he cannot
+            # do if he cannot see it. He pruned N8 from seven entries to two on
+            # 2026-08-04 purely because the list was in front of him.
+            #
+            # But the citation text here is NOT authoritative and must never be
+            # applied verbatim. Two of the details he typed by hand that same day
+            # were wrong: Funk part II was given as issue 1 when it is issue 2,
+            # and Permutt 1962 as ending on page 269 when it ends on 260. Those
+            # are the ordinary errors of retyping a citation, and a round trip
+            # through this document would write them straight back into the page.
+            #
+            # So: this document decides WHICH references appear. PubMed decides
+            # HOW they read. The note below travels with the doc so the rule does
+            # not live only in a context file.
+            d.add_paragraph()
+            d.add_heading('References', level=2)
+            note(d, 'To DROP a reference, strike it. To ADD one, write [add: author, year, journal, '
+                    'roughly what it is] rather than typing the citation out. Do not correct the text '
+                    'of an entry here: every author list, volume, issue, page range, year and DOI is '
+                    'fetched from PubMed when the page is rebuilt, so an edit made here is discarded '
+                    'and a typo made here is caught. This list is what the page currently carries.',
+                 '6B7280')
+            for i, ref in enumerate(data, 1):
+                pp = d.add_paragraph()
+                r = pp.add_run('%d. %s' % (i, ref)); r.font.size = Pt(9.5)
+                r.font.color.rgb = RGBColor.from_string('444444')
+            if not data:
+                note(d, 'This page currently carries no references.', '6B7280')
         elif kind == 'figframe':
             note(d, '[FIGURE PLACEHOLDER - to import at build: ' + re.sub(r'\s+', ' ', data) + ']', '9A6B00')
         elif kind == 'callout':
