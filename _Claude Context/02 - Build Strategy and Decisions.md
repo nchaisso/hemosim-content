@@ -20,6 +20,37 @@ reviewed edit doc is `04 - Module Edit Workflow.md`.
 4. **Interactive knowledge checks are added on top later**, incrementally, as
    reviewable drop-in components, page by page. Adding a check does not disturb
    the native content around it.
+5. **I12 and I13 sit at Informed, and E2 becomes a true integrating module.**
+   Decided 2026-08-04, closing the Appendix B item that asked whether the two
+   arterial modules belonged at Informed or Expert.
+
+   The reasoning, because the consequence is easy to undo by accident. Neal's
+   standard for an Informed learner is that they can interpret SPV and PPV at the
+   bedside **and know when those numbers are invalid**. I13 is that skill and I12
+   is the physiology that makes it safe, so the two travel together; splitting
+   them would teach a learner to read a number before they could tell when it
+   lies.
+
+   Knowing when PPV is invalid is not a list to memorise. Spontaneous effort, low
+   tidal volume, arrhythmia and RV failure all invalidate it through transmural
+   pressure. So **Informed teaches transmural pressure properly**, rather than
+   giving the conditions as rules with a token mechanism. A learner who has only
+   the rules cannot judge a case the rules do not cover, which is exactly what
+   Neal's standard requires of them.
+
+   E2 therefore stops being first exposure to heart-lung physiology and becomes
+   what its title already claims: the integrating module. Its distinct work is
+   the pulmonary circulation and West zones, the determinants of pulmonary
+   afterload, and the eight Notion disease scenarios. That matches the
+   onion-layer rule in section 1.3, where At the Bedside branches are Informed
+   and the hardest ones are Expert.
+
+   The working boundary: **if the question can be answered from an arterial
+   tracing it is I12 or I13. If it needs reasoning about pressures across the
+   chest wall and through the pulmonary vasculature, it is E2.**
+
+   The V8 outline still carries this as an open question in Appendix B under
+   "Needs your attention". Move it to Resolved at the next outline revision.
 
 ## Content standards that govern any module work
 

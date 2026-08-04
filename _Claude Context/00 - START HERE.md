@@ -95,9 +95,11 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
 
 **Blocked on Neal or Gustavo**
 
-- **Two V8 Appendix B items** ("Needs your attention") are Informed and Expert
-  only: ANDROMEDA and Pinsky citations, and the level of the two new arterial
-  modules. Neal is following up with Gustavo. Neither blocks the Novice build.
+- **V8 Appendix B, remaining items.** The ANDROMEDA and Pinsky citations still
+  need confirming with Gustavo. The arterial-module question is **resolved**: I12
+  and I13 sit at Informed and E2 becomes the integrating module, decided
+  2026-08-04. See file 02, locked decision 5. The outline itself still lists it
+  as open and should be updated at the next revision.
 - Confirm exact citations for ANDROMEDA-PEGASUS, ANDROMEDA-SHOCK 2, and the
   Pinsky TPP figure. Do not fabricate.
 - **N8 teaching case.** The guided case (79-year-old woman, hypovolemic pattern)
