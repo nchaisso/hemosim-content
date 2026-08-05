@@ -52,7 +52,7 @@ class P(HTMLParser):
         super().__init__(); s.blocks = []; s.inmain = False
         s.collect = None; s.buf = ''; s.skip = 0
         s.fig = None; s.grid = None; s.row = None; s.bus = None; s.box = None; s.callout = None
-        s.refs = None
+        s.refs = None; s.cdepth = 0
 
     def handle_starttag(s, t, attrs):
         a = dict(attrs); c = a.get('class', '')
@@ -68,6 +68,7 @@ class P(HTMLParser):
         if t in ('div', 'p') and ('pager' in c or 'eyebrow' in c or 'attrib' in c):
             s.skip += 1; return
         if s.skip: return
+        if t == 'div' and s.callout is not None: s.cdepth += 1; return
         if t == 'div' and 'refs' in c.split(): s.refs = []; return
         if t == 'li' and s.refs is not None: s.collect = 'refitem'; s.buf = ''; return
         # Body lists arrived on the site 2026-08-03 (N7-T1's balloon safety list).
@@ -81,7 +82,7 @@ class P(HTMLParser):
         elif t == 'figure': s.fig = {'img': None, 'cap': ''}
         elif t == 'img' and s.fig is not None: s.fig['img'] = a.get('src'); s.fig['cls'] = c
         elif t == 'figcaption': s.collect = 'figcap'; s.buf = ''
-        elif t == 'div' and 'callout' in c: s.callout = {'txt': '', 'href': None}
+        elif t == 'div' and 'callout' in c: s.callout = {'txt': '', 'href': None, 'insight': 'insight' in c.split()}
         elif t == 'a' and s.callout is not None: s.callout['href'] = a.get('href')
         elif t == 'table' and 'grid' in c: s.grid = []
         elif t == 'tr' and s.grid is not None: s.row = []
@@ -102,6 +103,8 @@ class P(HTMLParser):
         if not s.inmain: return
         if t in ('div', 'p') and s.skip:
             s.skip -= 1; return
+        if t == 'div' and s.callout is not None and s.cdepth:
+            s.cdepth -= 1; return
         b = s.buf.strip()
         if t == 'li' and s.collect == 'refitem':
             s.refs.append(b); s.collect = None; return
@@ -210,7 +213,9 @@ def build(nfile, label):
         elif kind == 'figframe':
             note(d, '[FIGURE PLACEHOLDER - to import at build: ' + re.sub(r'\s+', ' ', data) + ']', '9A6B00')
         elif kind == 'callout':
-            note(d, '[Offshoot / At-the-Bedside link: ' + re.sub(r'\s+', ' ', data.get('txt', '')).strip() + (' (target: ' + data['href'] + ')' if data.get('href') else '') + ']', '9A6B00')
+            kind = 'Physiologic Insight box' if data.get('insight') else 'Offshoot / At-the-Bedside link'
+            body = re.sub(r'^\s*(Physiologic insight|At the Bedside)[\s.:-]*', '', re.sub(r'\s+', ' ', data.get('txt', '')).strip(), flags=re.I)
+            note(d, '[' + kind + ': ' + body + (' (target: ' + data['href'] + ')' if data.get('href') else '') + ']', '9A6B00')
     outp = os.path.join(OUT, '%s - Edit Doc.docx' % label); d.save(outp); return outp
 
 
@@ -218,11 +223,21 @@ mods = [('n1.html', 'N1'), ('n2.html', 'N2'), ('n3.html', 'N3'), ('n4.html', 'N4
         ('n6.html', 'N6'), ('n7.html', 'N7'),
         ('n7-t1.html', 'N7-Topic1-Indications'), ('n7-t2.html', 'N7-Topic2-Insertion'),
         ('n7-t3.html', 'N7-Topic3-Waveforms'), ('n7-t4.html', 'N7-Topic4-CardiacOutput'), ('n8.html', 'N8')]
+
+# The Informed pathway. All seventeen are listed so the file is the roster, but
+# build() skips any page that does not exist yet, so running this before a module
+# is written is harmless. Added 2026-08-05 with the first Informed slice.
+mods += [('i%d.html' % n, 'I%d' % n) for n in range(1, 18)]
 if __name__ == '__main__':
     # No args regenerates every module. Pass labels (e.g. "N1 N4") to regenerate just those,
     # so a single reviewed module can be refreshed without overwriting the others.
     import sys
     wanted = {a.upper() for a in sys.argv[1:]}
+    missing = []
     for f, l in mods:
         if wanted and l.upper() not in wanted: continue
+        if not os.path.exists(os.path.join(WP, f)):
+            missing.append(l); continue
         print('made', build(f, l))
+    if missing:
+        print('skipped, page not built yet: ' + ', '.join(missing))
