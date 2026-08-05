@@ -76,6 +76,32 @@ reviewed edit doc is `04 - Module Edit Workflow.md`.
   none. All pptx graphics need attribution if used. Open questions are logged in
   `HemoSim Graphics Follow-Up.md`.
 
+### Depth and voice by tier, set 2026-08-04
+
+**Novice is the base layer every learner reads.** Pitch it at a beginning
+resident or beginning fellow. It is the shared floor, not a summary of what
+follows.
+
+**Informed is what a respected critical care physician should know.** It is
+considerably deeper than Novice: detailed, and willing to take the time to
+explain a concept concretely and robustly. **Prioritise thoroughness over
+brevity.** This inverts the usual instinct to tighten prose, and it is deliberate.
+An Informed module that reads like a longer Novice module has failed.
+
+**Informed assumes Novice.** The learner has read that pathway and is familiar
+with its concepts, so refer back rather than restating. That is what buys the
+room to go deep.
+
+**Informed and Expert are physiology, not method.** The A.C.T. algorithm is the
+Novice spine's organising frame and does not need tying back into at every turn
+here. These tiers are about hemodynamic physiology, not the basic steps of shock
+assessment. Mention A.C.T. where a physiologic point genuinely lands on it, not
+as scaffolding.
+
+The concrete length target is deliberately not fixed here. It gets set by the
+first Informed slice (I1, I8, I11) and that becomes the contract for the
+remaining fourteen, which is the reason for building a slice first.
+
 ### Page components and the variable colours, settled 2026-08-04
 
 The stylesheet in `hemosim-web` carries the components a module page is built
