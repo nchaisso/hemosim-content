@@ -60,8 +60,21 @@ reviewed edit doc is `04 - Module Edit Workflow.md`.
   then Notion depth, then deck narration. Still mine the speaker notes and the
   Notion Clinical and Physiological Correlation subpages for depth the published
   Wix page compresses out.
+
+  Reconfirmed by Neal 2026-08-05, and it holds for Informed and Expert as well as
+  Novice: **Wix is stronger wherever it has content**, because it is the published
+  form. Where a Wix page is thin, and the first Informed slice found several that
+  are graphic-only or unfinished, defer to Notion and then to the v2022 deck.
+  Supplement from the named authorities where extra depth genuinely helps, which
+  is what the I1, I8 and I11 agents did.
+
+  `_Source Library/INDEX.md` used to state the opposite for Informed and Expert,
+  that Notion was primary. It misdirected the first three agents and was corrected
+  on 2026-08-05.
 - **Depth standard:** connected prose, several `<h2>` sections, `.eq` equations,
-  `.grid` tables. Roughly 1200 to 2000 words per module.
+  `.grid` tables. Roughly 1200 to 2000 words per module **at Novice**. The
+  Informed and Expert tiers run considerably longer; see "Depth and voice by
+  tier" above.
 - **Writing standard (locked):** connected prose, not bullet dumps. Carry the
   module-to-module thread naturally in the opening and closing prose. No boxed
   recap, no boxed bridge.

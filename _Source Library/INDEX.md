@@ -198,7 +198,18 @@ Sources are abundant and overlapping; **build primarily from `pac-modules-patric
 - `docs/hemodynamics-proposal-2026.md` scenarios 1–6 (de novo starter cases spanning the grid).
 - Curves must connect to the shock-type table and management (V8 C37).
 
-### INFORMED (assumes the Novice spine; **Notion is the primary source, Wix for Interface IV**)
+### INFORMED (assumes the Novice spine)
+
+> **Source precedence, confirmed by Neal 2026-08-05: Wix first where it has
+> content, then Notion, then the v2022 deck.** Wix is stronger wherever it
+> actually carries prose, because it is the published, citation-bearing form.
+> Where a Wix page is thin, and several are, defer to Notion and then to the
+> deck. Supplement from the named authorities (Kenny, Kattan, Magder, Pinsky)
+> where extra depth genuinely helps.
+>
+> Earlier revisions of this file said Notion was primary for all Informed and
+> Expert physiology. That was wrong and it misdirected the first three module
+> agents. Corrected here.
 
 #### I1 — Physiologic foundations (three principles in full)
 - `hemodynamics-module-v2022-full.md` 43–67 (physiology backbone). **Deeper sources (captured — see §8): Wix; Notion** (primary).
@@ -499,7 +510,7 @@ present). **Done:** Notion + Wix are captured and mapped in **§8**; read each m
 The §3 manifest above was built from the decks/docs only (Notion + Wix were captured afterward).
 This section maps the now-captured **Notion tree** (`notion/extracted/`, 93 pages + 336 images) and
 **Wix published pages** (`wix/`, 29 pages) to the modules. Together these **close gaps G1–G18** in
-§6: Notion is the primary source for all Informed/Expert physiology, and Wix is the polished,
+§6. **Precedence is Wix, then Notion, then the deck** (Neal, 2026-08-05). Wix is the polished,
 citation-bearing form of the Novice + Interface pages.
 
 ### 8a. Notion → module map (paths under `notion/extracted/HemoSim/Hemosim Curriculum Template/`)
