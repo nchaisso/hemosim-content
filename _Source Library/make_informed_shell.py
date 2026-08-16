@@ -22,31 +22,34 @@ WEB = '/Users/chaissn/Claude/hemosim-web'
 # row: seventeen pills do not fit the viewport, and scrolling hides both the
 # length of the pathway and which modules exist. Novice keeps the single row,
 # where eight steps fit.
+# All seventeen carry a filename as of 2026-08-15: the pathway is complete, so
+# there is no longer any such thing as an unbuilt neighbour. The None entries and
+# the "not built yet" pager text they produced are gone.
 GROUPS = [
     ('Foundations', [
         ('I1',  'Foundations',      'i1.html',  'Physiologic foundations'),
-        ('I2',  'Phenotype',        None,       'At the bedside: normotensive shock, pulse pressure, and hemodynamic phenotype'),
-        ('I3',  'Waveforms',        None,       'Pressure measurement and waveform fundamentals'),
+        ('I2',  'Phenotype',        'i2.html',  'At the bedside: normotensive shock, pulse pressure, and hemodynamic phenotype'),
+        ('I3',  'Waveforms',        'i3.html',  'Pressure measurement and waveform fundamentals'),
     ]),
     ('The four interfaces', [
-        ('I4',  'Interface I',      None,       'Interface I: LV to arterial system'),
-        ('I5',  'Interface II',     None,       'Interface II: arterioles to capillaries'),
-        ('I6',  'Microcirculation', None,       'Microcirculation and the vascular waterfall'),
-        ('I7',  'Interface III',    None,       'Interface III: capillaries to right atrium'),
+        ('I4',  'Interface I',      'i4.html',  'Interface I: LV to arterial system'),
+        ('I5',  'Interface II',     'i5.html',  'Interface II: arterioles to capillaries'),
+        ('I6',  'Microcirculation', 'i6.html',  'Microcirculation and the vascular waterfall'),
+        ('I7',  'Interface III',    'i7.html',  'Interface III: capillaries to right atrium'),
         ('I8',  'Venous return',    'i8.html',  'Venous return, in depth'),
-        ('I9',  'Interface IV',     None,       'Interface IV: RV to LA'),
-        ('I10', 'The loop',         None,       'Tying the loop together'),
+        ('I9',  'Interface IV',     'i9.html',  'Interface IV: RV to LA'),
+        ('I10', 'The loop',         'i10.html', 'Tying the loop together'),
     ]),
     ('Monitoring and measurement', [
         ('I11', 'Monitoring tools', 'i11.html', 'Hemodynamic monitoring tools'),
-        ('I12', 'Heart-lung',       None,       'Heart-lung interactions in arterial pressure monitoring'),
-        ('I13', 'SPV and PPV',      None,       'Evaluating arterial systolic and pulse-pressure variation'),
-        ('I14', 'CVP waveform',     None,       'Right atrial and CVP waveform interpretation'),
-        ('I15', 'PA catheter',      None,       'PA catheter interpretation beyond the Novice basics'),
-        ('I16', 'Cardiac output',   None,       'Measuring cardiac output'),
+        ('I12', 'Heart-lung',       'i12.html', 'Heart-lung interactions in arterial pressure monitoring'),
+        ('I13', 'SPV and PPV',      'i13.html', 'Evaluating arterial systolic and pulse-pressure variation'),
+        ('I14', 'CVP waveform',     'i14.html', 'Right atrial and CVP waveform interpretation'),
+        ('I15', 'PA catheter',      'i15.html', 'PA catheter interpretation beyond the Novice basics'),
+        ('I16', 'Cardiac output',   'i16.html', 'Measuring cardiac output'),
     ]),
     ('Apply', [
-        ('I17', 'Apply',            None,       'Apply'),
+        ('I17', 'Apply',            'i17.html', 'Apply'),
     ]),
 ]
 
@@ -107,13 +110,48 @@ SKELETON = (
     '</div>{pager}</div></main><div class="ribbon">PROTOTYPE</div></body></html>\n')
 
 
+# Both patterns below were rewritten on 2026-08-15. The originals were written
+# against the skeleton, where the stepper is followed immediately by <main> and
+# nothing follows the pager, and they were never run against a page with content
+# in it. On a written page both failed silently and destructively:
+#
+#   stepper: `...<div class="wrap">.*?</div></div>` stopped at the first
+#            adjacent pair of closing divs, which is the end of step group one,
+#            so it replaced one group of four and orphaned the other three.
+#   pager:   `<div class="pager">.*?</div>\s*</div>\s*</main>` ran on to the only
+#            `</div></div></main>` in the file, which is the end of the reference
+#            list, so a chrome refresh deleted every reference on the page.
+#
+# The stepper now anchors on the <main> that always follows it. The pager matches
+# its own two children structurally and stops there. The assertions at the end are
+# there because both failures were invisible in the script's output.
+STEPPER_RE = re.compile(r'<div class="stepper.*?</div></div><main>', re.S)
+PAGER_RE = re.compile(
+    r'<div class="pager">'
+    r'(?:<a class="pg[^"]*"[^>]*>.*?</a>|<span class="pg[^"]*"[^>]*>.*?</span>)+'
+    r'</div>', re.S)
+
+
 def refresh(path, idx, code, title):
     """Rewrite the stepper and pager in place, leaving written content alone."""
     html = open(path).read()
-    html = re.sub(r'<div class="stepper[^"]*"><div class="wrap">.*?</div></div>',
-                  stepper(FLAT[idx][2]), html, count=1, flags=re.S)
-    html = re.sub(r'<div class="pager">.*?</div>\s*</div>\s*</main>',
-                  pager(idx) + '</div></main>', html, count=1, flags=re.S)
+    had_refs = '<div class="refs">' in html
+
+    html, n_step = STEPPER_RE.subn(stepper(FLAT[idx][2]) + '<main>', html, count=1)
+    if n_step != 1:
+        raise SystemExit('%s: could not locate the stepper, nothing written' % path)
+
+    html, n_pager = PAGER_RE.subn(pager(idx), html, count=1)
+    if n_pager != 1:
+        raise SystemExit('%s: could not locate the pager, nothing written' % path)
+
+    groups = html.count('class="stepgroup"')
+    if groups != len(GROUPS):
+        raise SystemExit('%s: %d step groups after rewrite, expected %d'
+                         % (path, groups, len(GROUPS)))
+    if had_refs and '<div class="refs">' not in html:
+        raise SystemExit('%s: the rewrite dropped the reference list' % path)
+
     open(path, 'w').write(html)
 
 
