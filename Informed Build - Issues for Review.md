@@ -240,6 +240,79 @@ is worth knowing before the next build.
 
 ---
 
+# Part 3b. Two things we need from Gustavo
+
+## 3b.1 The two rewrites offered on 2026-08-09, still outstanding
+
+Gustavo offered on 2026-08-09 to finish two pieces by the end of that week if
+told they were needed. He has had no answer, and both are now overtaken by the
+build in ways worth knowing before he starts:
+
+1. **The transmural versus intravascular CVP/RAP passage**, which Neal flagged as
+   awkwardly written. Still wanted. Note that **I3 now teaches transmural
+   pressure properly as the concept the monitoring modules stand on**, and I12,
+   I13, I14 and I15 all refer back to it rather than restating it. A rewrite
+   should fit that structure rather than duplicate I3.
+2. **The full section on CVP waveform, measurement and alterations.** **I14 is
+   now written and complete**, built from the v2022 RA module because the Notion
+   "CVP Waveform Alterations" page is empty. So this is no longer a gap to fill
+   from nothing. The useful version of the task has changed shape: review I14,
+   and fill the empty Notion page from it so Notion stops being a hole in the
+   source library.
+
+**What we need is a decision on which of those two is still worth his time**,
+given both have moved.
+
+## 3b.2 The 2026-08-09 edits, not yet incorporated
+
+Two items from the same email are still outstanding on our side, not his:
+
+- A minor proposal for the fluid responsiveness section in the Expert pathway.
+  Expert has not been built yet, so this needs holding until E-tier work starts.
+- A correction to the Master Content Inventory and Level Mapping, where some
+  perfusion assessment tools were not referenced to Notion.
+
+---
+
+# Part 3c. One question that needs a curriculum-level answer
+
+## Where do we read a right atrial pressure?
+
+This is the only issue in the build that cannot be fixed module by module,
+because our sources give three different answers and the pages have inherited
+all three. They diverge by several mmHg in exactly the patients where the reading
+changes management, so this needs one answer applied everywhere.
+
+**The three conventions in our own material:**
+
+| Source | Says |
+|---|---|
+| v2022 slide 293, and Magder | The **z point**, the base of the c wave |
+| v2022 slide 277 | The **peak of the a wave** |
+| `pulmonary-artery-catheter-1` slide 11 | The **a wave averaged** top to bottom |
+
+**Where each has landed on the site:**
+
+| Page | Currently teaches |
+|---|---|
+| `i14.html` | The z point / base of the c wave, and argues explicitly that reading the a wave peak overstates filling pressure in a stiff ventricle |
+| `i15.html` | "The peak of the a wave is what should be measured", then "read the a wave, averaging its top and its bottom", which are two different instructions |
+| `i17.html` | The z point, in two worked cases |
+| `n7-t3.html` | "Read the RA pressure at the a wave, averaging its top and bottom" |
+
+**i14 and i15 directly contradict each other**, and i14 gives the argument
+against what i15 instructs.
+
+Every one of these four locations is marked in the HTML with the comment
+`TODO-CVPREAD`, so they can be found with a single search once the answer is
+settled, and corrected together. The same question is flagged in the edit docs
+for I14, I15, I17 and N7-Topic3, so whichever module is reviewed first surfaces
+it.
+
+Nothing has been changed on any of the four pages pending that decision.
+
+---
+
 # Part 4. Per-module review items
 
 ## I1 (already written, not rebuilt)
