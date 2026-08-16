@@ -136,6 +136,65 @@ def note(doc, t, color='C0392B'):
     p = doc.add_paragraph(); r = p.add_run(t); r.italic = True; r.font.size = Pt(9.5); r.font.color.rgb = RGBColor.from_string(color)
 
 
+# Per-module issue blocks, added 2026-08-16.
+#
+# A module's known problems used to live only in a separate document, which meant
+# holding two files open during review. Now an optional plain-text file per module
+# is rendered as a block at the top of its edit doc, so the issues travel with the
+# prose they concern and get resolved in the same pass.
+#
+# One file per module at `Module Edit Docs/_issues/<LABEL>.md`, for example
+# `_issues/I14.md`. One issue per line, wrapped lines continue if indented. A line
+# starts with its class:
+#
+#   SOURCE:    a defect in a deck, Notion page, document or the index. Fixing the
+#              module alone leaves the error in circulation.
+#   DECISION:  a judgement Neal or Gustavo has to make before the page is final.
+#   NOTE:      something done deliberately and worth knowing, needing no action.
+#
+# Blank lines and lines starting with # are ignored. **No file means no block**,
+# so every module without one regenerates byte-for-byte as before. That is what
+# makes this safe to add to a script the Novice docs also use.
+ISSUE_DIR = os.path.join(OUT, '_issues')
+ISSUE_COLORS = {'SOURCE': 'B00000', 'DECISION': '0050A0', 'NOTE': '5A5A5A'}
+
+
+def read_issues(label):
+    path = os.path.join(ISSUE_DIR, '%s.md' % label)
+    if not os.path.exists(path):
+        return []
+    out = []
+    for raw in open(path):
+        ln = raw.rstrip()
+        if not ln.strip() or ln.lstrip().startswith('#'):
+            continue
+        if ln[:1].isspace() and out:                      # continuation of the previous issue
+            out[-1] = (out[-1][0], out[-1][1] + ' ' + ln.strip())
+            continue
+        cls, _, rest = ln.partition(':')
+        cls = cls.strip().upper()
+        if cls not in ISSUE_COLORS:
+            cls, rest = 'NOTE', ln                        # unclassed lines still render
+        out.append((cls, rest.strip()))
+    return out
+
+
+def issue_block(doc, label):
+    issues = read_issues(label)
+    if not issues:
+        return
+    p = doc.add_paragraph()
+    r = p.add_run('ISSUES FLAGGED FOR THIS MODULE (%d)' % len(issues))
+    r.bold = True; r.font.size = Pt(10.5); r.font.color.rgb = RGBColor.from_string('B00000')
+    note(doc, 'These were found while the module was built and are not part of the prose. '
+              'SOURCE means the defect is in a deck, a Notion page or the source index and has to be '
+              'fixed there too. DECISION means it needs your call before the page is final. NOTE is '
+              'for information. Answer them in [brackets] like any other instruction.', '5A5A5A')
+    for cls, text in issues:
+        note(doc, '[%s: %s]' % (cls, text), ISSUE_COLORS[cls])
+    doc.add_paragraph()
+
+
 def build(nfile, label):
     html = open(os.path.join(WP, nfile)).read()
     body = html[html.find('<main'):html.find('</main>') + 7]
@@ -144,6 +203,7 @@ def build(nfile, label):
     d.add_heading('HemoSim edit doc - %s' % label, level=0)
     note(d, 'HOW TO USE: edit the wording directly (Track Changes if you like). For layout or a figure (size, position, wrong/missing image) write a short instruction in [brackets] right where it applies. Send it back and I apply the wording to the page and the layout notes to the styling, then regenerate. This is a content+notes doc, so it will not look exactly like the web page.')
     d.add_paragraph()
+    issue_block(d, label)
     for kind, data in p.blocks:
         if kind == 'h1': d.add_heading(data, level=1)
         elif kind == 'h2': d.add_heading(data, level=2)
