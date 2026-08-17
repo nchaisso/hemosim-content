@@ -159,8 +159,10 @@ spontaneous breathing (LV dysfunction, RV dysfunction, intra-abdominal
 hypertension, COPD and asthma, cardiac tamponade) and three positive-pressure
 ventilation (ARDS, LV dysfunction, relative and absolute hypovolemia). Assessing
 Vasoplegia carries the Diastolic Shock Index (DSI = HR/DAP). Fluid Responsiveness
-has a test-selection summary table. CVP Waveform Alterations is still empty and
-remains a build task.
+has a test-selection summary table. CVP Waveform Alterations is empty, and
+**Neal decided on 2026-08-17 that it stays that way.** Informed module I14 is the
+curriculum's treatment of right atrial and CVP waveform interpretation, built
+from the v2022 RA module, and Notion is not being backfilled from it.
 
 **Access:** pages are public. Read via the Claude-in-Chrome browser (navigate,
 then scrape `.notion-page-content`; sanitize tokens over 22 characters to avoid
@@ -196,7 +198,8 @@ learner's answers across modules" respectively. They are not restated here.
 Project-level open items are tracked in one place, `00 - START HERE.md`. Only
 content-authoring items specific to the source material are listed here.
 
-- Build the CVP Waveform Alterations page in Notion. It exists but is empty.
+- ~~Build the CVP Waveform Alterations page in Notion.~~ **Closed 2026-08-17.**
+  I14 covers the material and the Notion page is not being backfilled.
 - Create the Clinical Markers clinical example.
 
 ## Access mechanics and gotchas

@@ -253,15 +253,14 @@ build in ways worth knowing before he starts:
    pressure properly as the concept the monitoring modules stand on**, and I12,
    I13, I14 and I15 all refer back to it rather than restating it. A rewrite
    should fit that structure rather than duplicate I3.
-2. **The full section on CVP waveform, measurement and alterations.** **I14 is
-   now written and complete**, built from the v2022 RA module because the Notion
-   "CVP Waveform Alterations" page is empty. So this is no longer a gap to fill
-   from nothing. The useful version of the task has changed shape: review I14,
-   and fill the empty Notion page from it so Notion stops being a hole in the
-   source library.
+2. **The full section on CVP waveform, measurement and alterations.** **This one
+   is no longer needed.** I14 is written and complete, built from the v2022 RA
+   module, and it covers the normal waveform, how to measure, and the pathological
+   series. The empty Notion page is not being backfilled. What would help instead
+   is a review of I14 itself, which has its own issue block.
 
-**What we need is a decision on which of those two is still worth his time**,
-given both have moved.
+**So the answer on the two rewrites is: the transmural passage is still wanted,
+the CVP waveform section is not.**
 
 ## 3b.2 The 2026-08-09 edits, not yet incorporated
 
@@ -450,9 +449,10 @@ as a fall.
   curriculum's own practical guidance rather than attributed to literature), and
   any percentage for the atrial contribution to RV filling, where only LV data
   exists.
-- The Notion "CVP Waveform Alterations" page is confirmed empty, title line only.
-  This is the page Gustavo offered to write. The module was built from the deck
-  and is complete without it.
+- The Notion "CVP Waveform Alterations" page is empty, title line only, so the
+  module was built from the v2022 RA module instead and is complete without it.
+  **Decided 2026-08-17: the Notion page is not being backfilled.** I14 is the
+  curriculum's treatment of this material.
 
 ## I15, PA catheter interpretation
 
