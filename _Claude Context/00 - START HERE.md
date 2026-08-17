@@ -200,11 +200,14 @@ depth standard, source precedence, figure rules) live in
 `02 - Build Strategy and Decisions.md` under "Content standards". Do not keep a
 second copy here.
 
-**Build scripts are durable and now tracked.** Six live at the root of
+**Build scripts are durable and tracked.** Nine live at the root of
 `_Source Library/`: `make_edit_docs.py` (regenerates the Word edit docs from the
-HTML), `read_edit_doc.py` (reads tracked changes out of a returned doc),
+HTML, and renders each module's issue block), `read_edit_doc.py` (reads tracked
+changes out of a returned doc), `make_informed_shell.py` (the Informed navigation,
+never hand-edit a stepper or pager), `verify_refs.py` (the central references pass
+against PubMed), `md2docx.py` (renders a project Markdown file as Word),
 `assemble_rebuild.py`, `extract_all.py` (deck extraction), `wix_capture.py`, and
-`banner_gen.py`. They are in git as of 2026-07-28.
+`banner_gen.py`. The first six are the ones a content session actually uses.
 
 The one script not preserved is `build_pilot_v8.py`, which generated the pilot
 pages and was lost with an old scratchpad. If a full page rebuild is needed,

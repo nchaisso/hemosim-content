@@ -220,12 +220,10 @@ content-authoring items specific to the source material are listed here.
   `INGESTION PLAN.md`, `decks/` (9 decks as markdown with speaker notes, plus
   374 figures in `decks/images/`), `docs/` (6 source .docx), `notion/extracted/`,
   `wix/` (29 published pages), and six build scripts.
-  The two Markdown files and the six `.py` scripts **are tracked in git**
-  (roughly 100 KB, they diff readably and are expensive to lose). Everything else
-  in the folder is excluded. The scripts are `make_edit_docs.py` (regenerates the
-  Word edit docs from the HTML), `read_edit_doc.py` (reads tracked changes out of
-  a returned doc), `assemble_rebuild.py`, `extract_all.py`, `wix_capture.py`, and
-  `banner_gen.py`. `build_pilot_v8.py`, which generated the pilot pages, was lost
+  The two Markdown files and the nine `.py` scripts **are tracked in git**
+  (they diff readably and are expensive to lose). Everything else in the folder is
+  excluded. The scripts are listed with what each is for in file 02 under
+  "Tooling". `build_pilot_v8.py`, which generated the pilot pages, was lost
   with an old scratchpad and is not recoverable.
 - `Hemosim COntent Outlines for Wix Build/`, outline v1 through v8.
 - `Module Edit Docs/`, 14 Word edit docs (N1 to N8, the four N7 topics, and the
