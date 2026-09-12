@@ -1,6 +1,6 @@
 # START HERE
 
-Orientation and current status for HemoSim. Last updated: 2026-08-04.
+Orientation and current status for HemoSim. Last updated: 2026-09-12.
 
 This file holds **current state only**. Standing rules live in two files that load
 automatically: `~/.claude/CLAUDE.md` for the global ones and `CLAUDE.md` at this
@@ -23,7 +23,8 @@ that govern the build itself.
 ## The project in one paragraph
 
 Neal is building HemoSim, a free public tiered hemodynamics curriculum on Wix
-(hemosim.org), due September 1, 2026. Content is captured in the V8 outline
+(hemosim.org). September 2026 was a soft target, not a deadline, per Neal on
+2026-09-12. Content is captured in the V8 outline
 (Novice, Informed, Expert). The real site gets built natively in Wix so Neal can
 edit it himself. The HTML pilot is the design template and narrative standard,
 not the content store. Interactive knowledge checks get added later as reviewable
@@ -84,7 +85,16 @@ were drawn from scratch as SVG (the insights icon, the West lung zones, an RV
 pressure waveform, and a redrawn right atrial tracing). Every citation on the site
 now resolves in PubMed.
 
-`N7-T3` and `N7-T4` have not been reviewed. They still sit at 2026-07-13 depth.
+`N7-T3` and `N7-T4` were rebuilt on 2026-09-12 from Neal's reviewed edit docs,
+with sixteen figures drawn as SVG by `_Source Library/make_pac_tracings.py` and
+every reference verified. No page remains at 2026-07-13 depth.
+
+**Decisions of 2026-09-12.** Right atrial pressure is read at the z point, the
+most precise point, with the a wave peak at end-expiration acceptable for
+practical purposes. The wedge normal range is 6 to 12 mmHg, abnormal above 15.
+The five defects live on hemosim.org are ignored: the site is being rewritten
+wholesale from these modules. The I1 edit doc conflict is resolved (see
+`Module Edit Docs/_issues/I1.md`).
 
 The repeatable procedure is `04 - Module Edit Workflow.md`. Follow it rather than
 improvising.
@@ -95,13 +105,13 @@ reference folders are excluded. See file 03.
 
 ## Next step
 
-Both written pathways are now built and the bottleneck is review, not writing.
-Fourteen new Informed edit docs are waiting, alongside the Novice set. Neal's
-read-through is the gate.
+Both written pathways are built and every Informed edit doc has now been
+reviewed twice: by Neal (`Module Edit Docs/I*.docx`) and by Gustavo
+(`Module Edit Docs/Gustavo files/`, returned 2026-08-23 to 2026-09-09, with a
+"NEW I13" and V2 copies of I5 and I6). Applying them means merging both sets per
+module. I1 is reconciled and goes first.
 
-The Novice review pass is done. Next is Neal's read-through of the regenerated
-edit docs, which now include reference lists for the first time, followed by the
-two unreviewed topic pages (N7-T3, N7-T4).
+The Novice review pass is done, N7-T3 and N7-T4 included.
 
 After the review pass, in rough order: enrich the four N7 topic subpages from
 Notion and Wix, fill the remaining N2, N5, and N6 figure placeholders, then move
@@ -134,11 +144,9 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
   correction in the Master Content Inventory and Level Mapping, where some
   perfusion assessment tools were not referenced to Notion. Both need review and
   incorporation.
-- **Two Gustavo rewrites still outstanding**: the passage on the difference
-  between transmural CVP/RAP and intravascular CVP, which Neal flagged as
-  awkwardly written, and the full section on CVP waveform, measurement, and
-  alterations. Gustavo offered to finish both by end of the week of 2026-08-09
-  if told they are needed now. Neal owes him an answer on timing.
+- **The two Gustavo rewrites offered on 2026-08-09 are superseded.** His returned
+  I14 and I15 edit docs carry transmural pressure passages, and the CVP waveform
+  section was decided against on 2026-08-17. Nothing is owed on this item.
 
 **Ours to do**
 
@@ -183,9 +191,6 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
   `<!-- TODO-LINK: ... -->` on N4 and N8. They become real hrefs when those
   modules exist.
 
-- **Two pages are still at 2026-07-13 depth**: `n7-t3.html` and `n7-t4.html`. The
-  two Novice offshoots that shared this problem were deleted rather than
-  deepened, and N7 topics 1 and 2 were brought up to standard in the review pass.
 - **Cross-check each N7 topic page against its question bank** once content is
   final, so no tested item is missing from the teaching text (V7 C36).
 - **Notion and Wix were not re-crawled** during the N1 to N5 depth pass. If
