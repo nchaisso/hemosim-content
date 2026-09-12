@@ -31,8 +31,8 @@ feed which module.
 
 ## What this folder is
 
-The content library for the HemoSim hemodynamics curriculum (hemosim.org, due
-September 1, 2026). Source decks, primary literature, outline versions, and the
+The content library for the HemoSim hemodynamics curriculum (hemosim.org). There
+is no hard deadline: September 2026 was a soft target, per Neal on 2026-09-12. Source decks, primary literature, outline versions, and the
 Word module edit docs Neal revises directly.
 
 It is not the website. The site code lives in a separate repo, `hemosim-web`,

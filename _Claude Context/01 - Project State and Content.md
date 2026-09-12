@@ -9,7 +9,8 @@ Last updated: 2026-07-30.
 ## Project snapshot
 
 - HemoSim is a free, public, tiered, case-based hemodynamics curriculum on Wix.
-  Live site: **hemosim.org** (not .com). Deadline: **September 1, 2026**.
+  Live site: **hemosim.org** (not .com). No hard deadline: September 2026 was a
+  soft target, per Neal on 2026-09-12.
 - It is Part 1 (web curriculum) of a two-part fellowship course. Part 2 is an
   in-person simulation day: PA-catheter station, tools station (LiDCO plus PLR),
   and four ACT scenarios.
