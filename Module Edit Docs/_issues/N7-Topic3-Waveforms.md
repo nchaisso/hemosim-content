@@ -1,8 +1,10 @@
-DECISION: Where to read a right atrial pressure. This page says "read the RA pressure at the a wave,
-    averaging its top and bottom." The Informed pathway disagrees with itself and with this: I14 and
-    Magder say the z point, the base of the c wave, and argue the a wave peak overstates filling pressure
-    in a stiff ventricle. I15 says the peak of the a wave, after v2022 slide 277. They diverge in exactly
-    the patients where the reading changes management. Needs a curriculum-level answer, after which all
-    four pages are corrected together. Every location is marked in the HTML with TODO-CVPREAD.
-NOTE: This page still sits at 2026-07-13 depth and was not part of the 2026-07-23 rebuild or the review
-    pass. Expect it to be thinner than N1 to N8.
+NOTE: Where to read a right atrial pressure was decided by Neal on 2026-09-12 in this module's edit doc: the
+    z point is the most precise reading, the a wave peak at end-expiration is acceptable for practical purposes,
+    and averaging the top and bottom of the a wave is also reasonable. This page now teaches that. The other
+    pages that carry a convention still need aligning at the finalize pass: i14.html (z point, consistent),
+    i15.html ("peak of the a wave" and "averaging its top and bottom" in adjacent sentences), i17.html (z point,
+    consistent), n7-t2.html (figure caption says the a wave peak only), n7.html (Topic 3 blurb says the a wave
+    peak only). The TODO-CVPREAD markers remain on i14, i15 and i17 until then. No question in the four topic
+    banks conflicts with the decision.
+NOTE: Rebuilt 2026-09-12 from the reviewed edit doc. Fourteen tracings were drawn as SVG by
+    _Source Library/make_pac_tracings.py, and every reference was verified against PubMed.

@@ -34,21 +34,24 @@
 # and PMC links that are claimed but do not exist.
 
 import html as htmlmod
-import json, os, re, sys, time, urllib.parse, urllib.request
+import json, os, re, subprocess, sys, time, urllib.parse
 
 WEB = '/Users/chaissn/Claude/hemosim-web'
 E = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/'
 
 
 def get(url):
+    # curl rather than urllib, 2026-09-12: the sandboxed sessions let curl out and
+    # block urllib, so the pass silently found nothing. Same fix as build_refs.py.
+    # -g turns off curl's URL globbing, which otherwise chokes on the [doi] field tag.
     for attempt in range(3):
-        try:
-            with urllib.request.urlopen(url, timeout=30) as r:
-                return r.read().decode('utf-8', 'replace')
-        except Exception:
-            if attempt == 2:
-                return ''
-            time.sleep(2)
+        time.sleep(0.35)                      # NCBI allows three requests a second without a key
+        r = subprocess.run(['curl', '-s', '-g', '-m', '30', url], capture_output=True)
+        if r.returncode == 0 and r.stdout.strip():
+            return r.stdout.decode('utf-8', 'replace')
+        if attempt == 2:
+            return ''
+        time.sleep(2)
     return ''
 
 

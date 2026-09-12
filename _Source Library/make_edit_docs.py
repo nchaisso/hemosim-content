@@ -76,6 +76,9 @@ class P(HTMLParser):
         if t == 'li': s.collect = 'listitem'; s.buf = ''; return
         if t == 'h1': s.collect = 'h1'; s.buf = ''
         elif t == 'h2': s.collect = 'h2'; s.buf = ''
+        # Subheads arrived 2026-08-03 (N7-T2) and were silently dropped from every
+        # edit doc until 2026-09-12, when the N7-T3 rewrite leaned on them.
+        elif t == 'h3': s.collect = 'h3'; s.buf = ''
         elif t == 'p' and 'closing' in c: s.collect = 'closing'; s.buf = ''
         elif t == 'div' and 'eq' in c.split(): s.collect = 'eq'; s.buf = ''
         elif t == 'div' and 'figframe' in c: s.collect = 'figframe'; s.buf = ''
@@ -114,6 +117,7 @@ class P(HTMLParser):
             s.blocks.append(('refs', s.refs)); s.refs = None; return
         if t == 'h1' and s.collect == 'h1': s.blocks.append(('h1', b)); s.collect = None
         elif t == 'h2' and s.collect == 'h2': s.blocks.append(('h2', b)); s.collect = None
+        elif t == 'h3' and s.collect == 'h3': s.blocks.append(('h3', b)); s.collect = None
         elif t == 'p' and s.collect == 'closing': s.blocks.append(('closing', b)); s.collect = None
         elif t == 'div' and s.collect == 'eq': s.blocks.append(('eq', b)); s.collect = None
         elif t == 'div' and s.collect == 'figframe': s.blocks.append(('figframe', b)); s.collect = None
@@ -207,6 +211,7 @@ def build(nfile, label):
     for kind, data in p.blocks:
         if kind == 'h1': d.add_heading(data, level=1)
         elif kind == 'h2': d.add_heading(data, level=2)
+        elif kind == 'h3': d.add_heading(data, level=3)
         elif kind == 'p': d.add_paragraph(data)
         elif kind == 'closing':
             pp = d.add_paragraph(); r = pp.add_run(data); r.italic = True
