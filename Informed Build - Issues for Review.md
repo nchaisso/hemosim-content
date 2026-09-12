@@ -56,6 +56,11 @@ the page that the deck disagrees.**
 
 ## 1.2 FIX AT SOURCE. Scenario 5's PA catheter panel does not compute
 
+**Corrected 2026-09-12** in the Word proposal and the markdown extract: derived
+values recomputed from CO 3.6, HR 103 and BSA 1.70 m2, mixed venous saturation set
+to 56 percent so indirect Fick agrees with thermodilution, debrief CI aligned.
+The table below is the record of the defect as found.
+
 `docs/hemodynamics-proposal-2026.md`, the decompensated RV failure case. This was
 found independently by two agents that agreed on every number.
 

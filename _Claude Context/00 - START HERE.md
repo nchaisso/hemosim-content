@@ -150,8 +150,15 @@ the one exception and live in `HemoSim Graphics Follow-Up.md`.
 
 **Ours to do**
 
-- **Scenario 5 in `docs/hemodynamics-proposal-2026.md` does not compute, and it
-  is a sim-day teaching case.** Found 2026-08-15 by two agents independently,
+- **Scenario 5 corrected 2026-09-12** in both the Word proposal (`HemoSim Base
+  Files for Claude Learning/Hemodynamics Proposal 2026.docx`, untracked, Dropbox
+  history holds the prior version) and the markdown extract. Derived values were
+  recomputed from CO 3.6, HR 103 and a stated BSA of 1.70 m2, the mixed venous
+  saturation was set to 56 percent so indirect Fick agrees with thermodilution,
+  and the debrief CI now matches the panel. The record of the defect follows.
+
+  Scenario 5 in `docs/hemodynamics-proposal-2026.md` did not compute, and it
+  is a sim-day teaching case. Found 2026-08-15 by two agents independently,
   which agreed on every number. The stated stroke volume of 39.34 mL is
   impossible at the case's own CO of 3.6 and heart rate of 103, which give 35.0.
   PVR is given as 12.50 Wood units where TPG 30 over CO 3.6 is 8.33. RVSWI is
