@@ -101,7 +101,7 @@ SKELETON = (
     '<link rel="stylesheet" href="style.css"></head><body>'
     '<header class="top"><div class="wrap"><div class="brand">HemoSim'
     '<span>Practical Hemodynamics</span></div>'
-    '<div class="levelchip informed">Informed pathway</div></div></header>'
+    '<div class="levelchip informed">Core pathway</div></div></header>'
     '{stepper}<main><div class="wrap"><p class="eyebrow">Module {code}</p>'
     '<h1>{title}</h1>'
     '<div class="pilotbar"><b>Shell only.</b> The navigation for the Informed '

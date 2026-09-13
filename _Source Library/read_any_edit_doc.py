@@ -14,7 +14,7 @@ def style_of(para):
 
 def inline(para, comments):
     out, pos = [], 0
-    pat = r'<w:(ins|del) [^>]*>.*?</w:\1>|<w:commentRangeStart w:id="(\d+)"/>|<w:commentRangeEnd w:id="(\d+)"/>'
+    pat = r'<w:(ins|del) [^>]*[^/>]>.*?</w:\1>|<w:commentRangeStart w:id="(\d+)"/>|<w:commentRangeEnd w:id="(\d+)"/>'
     for m in re.finditer(pat, para, re.S):
         plain = runs(para[pos:m.start()])
         if plain:
@@ -67,7 +67,7 @@ def main():
         print('media files:', len(media))
         return
     if mode == 'accepted':
-        xml = re.sub(r'<w:del [^>]*>.*?</w:del>', '', xml, flags=re.S)
+        xml = re.sub(r'<w:del [^>]*[^/>]>.*?</w:del>', '', xml, flags=re.S)
     for i, para in enumerate(paragraphs(xml)):
         text = runs(para) if mode == 'accepted' else inline(para, comments)
         has_img = '<w:drawing' in para or '<w:pict' in para
