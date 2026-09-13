@@ -6,7 +6,7 @@ A short follow-up to yesterday's email. Two things changed after I sent it, and 
 
 Figures (replaces item 10)
 
-You do not need to mark anything with [***]. I decided that every image you pasted into an edit doc belongs on the page, so all of them are now in: 34 figures across I3, I5, I6, I9, I12, I13, I14, I15, I16 and I17, each captioned and credited to you. Where your labels read Pra or Pmsf the caption says so. The I17 Case 3 abdominal pressure figure had been redrawn as an SVG by Claude, not by you, to match site notation; that redraw is gone and your original is the Case 3 figure. The I7 venous compliance and capacitance figure was redrawn the same way and the SVG is faithful, so your original is not shown there; say if you want it added.
+You do not need to mark anything with [***]. I decided that every image you pasted into an edit doc belongs on the page, so all of them are now in: 34 figures across I3, I5, I6, I9, I12, I13, I14, I15, I16 and I17, each captioned and credited to you. Where your labels read Pra or Pmsf the caption says so. The I17 Case 3 abdominal pressure figure had been redrawn as an SVG by Claude, not by you, to match site notation; that redraw is gone and your original is the Case 3 figure. The I7 venous compliance and capacitance figure was handled the same way: the redraw is gone and your original is the figure, credited to you.
 
 Three of the placed figures look reproduced from a paper rather than drawn by you, so their captions read "source to be confirmed". Please send the citation for each:
 
