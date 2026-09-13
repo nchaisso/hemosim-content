@@ -1,6 +1,6 @@
 # START HERE
 
-Orientation and current status for HemoSim. Last updated: 2026-09-12.
+Orientation and current status for HemoSim. Last updated: 2026-09-13.
 
 This file holds **current state only**. Standing rules live in two files that load
 automatically: `~/.claude/CLAUDE.md` for the global ones and `CLAUDE.md` at this
@@ -91,10 +91,25 @@ every reference verified. No page remains at 2026-07-13 depth.
 
 **Decisions of 2026-09-12.** Right atrial pressure is read at the z point, the
 most precise point, with the a wave peak at end-expiration acceptable for
-practical purposes. The wedge normal range is 6 to 12 mmHg, abnormal above 15.
-The five defects live on hemosim.org are ignored: the site is being rewritten
-wholesale from these modules. The I1 edit doc conflict is resolved (see
+practical purposes. The wedge is read at the a wave peak. The wedge normal range
+is 6 to 12 mmHg, abnormal above 15. Healthy Pms is 8 to 10 mmHg (N4). The five
+defects live on hemosim.org are ignored: the site is being rewritten wholesale
+from these modules. The I1 edit doc conflict is resolved (see
 `Module Edit Docs/_issues/I1.md`).
+
+**The reviewed Informed edits are applied, 2026-09-13.** All seventeen pages
+carry Neal's (I1, I2) and Gustavo's (all) reviewed edits, I13 was rebuilt from
+Gustavo's full rewrite, every page lints at 0 problems, and every reference
+resolves in PubMed. The edit docs in `Module Edit Docs/I*.docx` were regenerated
+from the finished pages; the reviewed originals stay in
+`Module Edit Docs/Gustavo files/` (untracked, 80 MB). What each page still owes
+Neal is in `Module Edit Docs/_issues/I<N>.md` as DECISION lines, collected in the
+handoff.
+
+**The middle tier is now called "Core", 2026-09-13.** Neal's instruction in the
+I1 doc: "Novice, Core, Expert" everywhere on the site. Every visible label was
+renamed. File names (i1 to i17), CSS class names, script names and these context
+files keep "Informed" as the internal word.
 
 The repeatable procedure is `04 - Module Edit Workflow.md`. Follow it rather than
 improvising.
@@ -105,17 +120,10 @@ reference folders are excluded. See file 03.
 
 ## Next step
 
-Both written pathways are built and every Informed edit doc has now been
-reviewed twice: by Neal (`Module Edit Docs/I*.docx`) and by Gustavo
-(`Module Edit Docs/Gustavo files/`, returned 2026-08-23 to 2026-09-09, with a
-"NEW I13" and V2 copies of I5 and I6). Applying them means merging both sets per
-module. I1 is reconciled and goes first.
-
-The Novice review pass is done, N7-T3 and N7-T4 included.
-
-After the review pass, in rough order: enrich the four N7 topic subpages from
-Notion and Wix, fill the remaining N2, N5, and N6 figure placeholders, then move
-toward the native Wix build.
+The Informed review pass is complete and pushed (2026-09-13). Neal's decisions
+on the per-module DECISION lines come first, then the Expert pathway (E1 to E8),
+then enriching the four N7 topic subpages, filling the remaining N2, N5 and N6
+figure placeholders, and moving toward the native Wix build.
 
 ## Open items
 
