@@ -15,6 +15,8 @@ Keep this one short: if it stops being scannable in a minute, move the detail ou
 4. `03 - Git and GitHub Setup.md`, how version control works here
 5. `04 - Module Edit Workflow.md`, the procedure for applying a reviewed edit doc
    (read when a module comes back, not every session)
+6. `05 - Wix Build Plan.md`, the phased plan for the native Wix build (read
+   before any Wix work)
 
 Before any module build, also read `_Source Library/INDEX.md` to know which
 sources feed which module, and file 02 under "Content standards" for the rules
@@ -120,10 +122,13 @@ reference folders are excluded. See file 03.
 
 ## Next step
 
-The Informed review pass is complete and pushed (2026-09-13). Neal's decisions
-on the per-module DECISION lines come first, then the Expert pathway (E1 to E8),
-then enriching the four N7 topic subpages, filling the remaining N2, N5 and N6
-figure placeholders, and moving toward the native Wix build.
+The Informed review pass is complete and pushed (2026-09-13). Next is the
+native Wix build, in the phases of file 05: archive the live site first, then a
+working site from the Novice and Core pages. The email of open items for
+Gustavo is at the project root, `Email to Gustavo - 2026-09-13.md`. Neal's
+decisions on the per-module DECISION lines, the Expert pathway (E1 to E8), the
+four N7 topic subpages and the remaining N2, N5 and N6 figure placeholders
+follow.
 
 ## Open items
 
