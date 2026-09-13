@@ -9,8 +9,8 @@ to add them later. Read after files 00 to 04.
 0. Preserve the existing hemosim.org material somewhere it can be referred to or
    reverted to.
 1. A clean rewrite of the entire site on Wix from the existing Novice and Core
-   pages (Neal wrote "Intermediate" in the brief; the tier name on the pages is
-   "Core", fixed 2026-09-13, confirm which word the site shows).
+   pages (Neal wrote "Intermediate" in the brief and confirmed "Core" on
+   2026-09-13).
 2. Hyperlinks between modules and concepts that connect to each other.
 3. Neal can edit the wording of a module later, inside Wix.
 4. Questions can be added later so a reader can check progress.
@@ -111,7 +111,7 @@ collections and the dynamic page template in the house design (style.css is the
 spec: type, colours, `.callout`, `.callout.insight`, `table.grid`, `.eq`, the
 grouped stepper). Write and run the migration for N1 to N8, N7-T1 to T4 and I1
 to I17. Build the static pages: home with the three tier cards, a pathway page
-per tier listing its modules in order, and the stepper as a component driven by
+per tier listing its modules in order (Expert modules as "coming soon" rows), and the stepper as a component driven by
 the `Modules` collection. Set up SEO titles and descriptions from the page data.
 Publish to a staging URL, read every module against the pilot, then point
 hemosim.org at the new site. Definition of done: every pilot page renders on Wix
@@ -160,16 +160,72 @@ for files Neal owns, YouTube embed for public clips. The module page renders the
 embed at the anchor. The flagging convention above means no module text changes
 when a video lands.
 
-## What Neal decides before Phase 1 starts
+## Decisions taken 2026-09-13
 
-- Tier name on the site: Core (as on the pages) or Intermediate (as in the brief).
-- Wix plan and whether Velo and the CMS are available on it.
-- How the migration authenticates: an API key created by Neal in the Wix
-  dashboard and given to the script through the environment.
-- Whether the Expert pathway ships as "coming soon" cards or is hidden until
-  written.
-- Domain cutover: point hemosim.org at the new site only after Neal has read
-  the staging site end to end.
+- The middle tier is "Core" on the site.
+- The Expert pathway exists on the site from day one as its tier card and
+  pathway page, with each module shown as "coming soon" and no module pages
+  published until written.
+- Figures Gustavo pasted into an edit doc go on the page even where their
+  labels read Pra or Pmsf; the caption states the notation.
+- Domain cutover only after Neal has read the staging site end to end.
+
+## Still to settle before Phase 1
+
+- Which Wix plan the site is on, and that the CMS and Velo are usable on it.
+- An API key for the migration script, created by Neal.
+
+## How to check the plan, the CMS and Velo (for Neal)
+
+1. Plan. Sign in at manage.wix.com, open the account menu (your avatar or
+   name, top right) and choose "Premium Subscriptions", or go straight to
+   manage.wix.com/account/premium-subscriptions. The page lists every paid
+   item: the site plan for hemosim.org with its name (for example Light, Core,
+   Business, Business Elite, or a Studio plan), the domain, and any apps. Tell
+   Claude the plan name as printed. If the page is empty, you are in a
+   different Wix account from the one that owns the site.
+2. Which editor. Open the site from "My Sites" and click "Edit Site". If the
+   editor's top bar has a "Dev Mode" menu, it is the classic Wix Editor. If it
+   shows a code icon (a `< >` symbol) in the left toolbar and the word Studio
+   in the corner, it is Wix Studio. Both support what the plan needs.
+3. Velo. Classic Editor: top bar, "Dev Mode", then "Turn on Dev Mode". A code
+   panel appears at the bottom and a "Velo Sidebar" on the left. Wix Studio:
+   click the code icon in the left toolbar, then "Start coding" if prompted.
+   Velo is free; no plan is required.
+4. CMS. In the site dashboard (manage.wix.com/dashboard/<site id>), the left
+   menu has a "CMS" entry (older accounts say "Content Manager"). Open it and
+   click "Create Collection" once to confirm it works, then delete the empty
+   collection or leave it. The CMS is free; the limit on free sites is 1,000
+   collection items on a classic account, far more than this site needs
+   (about 60 modules, a few hundred questions). A connected domain such as
+   hemosim.org already implies a paid plan.
+5. Site ID. It is the string after `/dashboard/` in the dashboard URL,
+   for example `manage.wix.com/dashboard/1a2b3c4d-.../home`. Copy it.
+
+## How to create the API key (for Neal)
+
+1. Go to manage.wix.com/account/api-keys (account menu, "API Keys"). Only
+   the account owner or a co-owner can do this.
+2. Click "+ Generate API Key" (top right).
+3. Under "Key details", name it `hemosim-migration 2026-09`.
+4. Under permissions, choose the two the script needs and nothing else: the
+   CMS or Wix Data permission (read and write collection items and manage
+   collections) and the Site Media permission (upload files). The exact
+   labels are grouped by product; if the list is confusing, choose "All site
+   permissions" for now and we replace the key with a narrower one once the
+   migration is done. The default permission that lists your sites cannot be
+   removed.
+5. Under site access, choose the hemosim.org site only, not all sites.
+6. Click "Generate Key". Wix emails a six-digit code; click "Send Code",
+   enter it, then "Verify & Generate Key".
+7. The token is shown once. Copy it into your password manager immediately.
+   Do not paste it into chat, email, a file in Dropbox, or the repo. When the
+   script runs, it reads the key from an environment variable that you set
+   in the terminal for that session only.
+8. On the same page, copy the "Account ID" ("Copy ID"). The script needs the
+   account ID, the site ID and the token.
+9. When the migration is finished and verified, delete the key on the same
+   page.
 
 ## Order of work for the next session
 

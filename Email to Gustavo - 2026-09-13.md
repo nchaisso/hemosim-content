@@ -25,19 +25,18 @@ Edits held because they conflict with something
 Figures
 
 13. I4. You asked for the Notion and Wix videos on time-varying elastance and for the Notion PVA versus MVO2 image. Videos are planned for the Wix build (see below), so tell me which files you mean. The PVA image has the same provenance problem as the two existing I4 figures that carry "Pagoulatou 2021" baked in: we need a citable source or a redraw.
-14. I5, I6, I9, I12, I13, I16, I17. Several images you pasted were not used: some duplicate figures already on the page, some carry "Pra" or "Pmsf" in the pixels (the site uses RAP and Pms), and the I6 lactate and CO2-gap diagrams have no verifiable source. The I17 Case 3 abdominal pressure figure was redrawn as an SVG with site notation. If any of the unused ones is your own drawing, say so and I will credit and place it.
+14. Every image you pasted is now on its page, credited to you, including those whose labels read Pra or Pmsf (the caption notes the notation). Where one is reproduced from a paper rather than drawn by you, the caption says "source to be confirmed": send me the citation for each so the credit can be completed. Two of your figures (I7 venous compliance and capacitance, I17 Case 3 abdominal pressure) were redrawn as SVGs in the site's style; say if you would rather the originals appear as well.
 
 Open questions Neal is deciding, where your view helps
 
 15. I13: one PPV threshold for the curriculum, 12.5 or 13 percent. Your text keeps both.
 16. I3: your comment C8 asks which damping-coefficient cutoff to teach. Propose one.
 17. I11: you said the PPV blunting in vasodilatory states and dynamic arterial elastance would wait for the Expert pathway, but Eadyn is now on I13 through your rewrite. Is I13 the right home, or should I13 carry the short version and Expert the full one?
-18. I2: your C288 (perfusion pressure versus upstream pressure for patient 1) and C289 (patient 1 does not meet the ANDROMEDA-SHOCK-2 enrolment criteria). Both are with Neal.
-19. I5: your C109 on the "Not all MAPs are equal" table. A hedging sentence, or leave it?
+18. I5: your C109 on the "Not all MAPs are equal" table. A hedging sentence, or leave it?
 
 Source defects you may want to know about before anything is reused
 
-20. The v2022 deck teaches tamponade as loss of the x and y descents (slides 308, 309); only the y is lost. The PAC deck's Module 8 answer grid pairs RV 45 with PA 30 without pulmonic stenosis and fails to equalise RAP and wedge in tamponade. Scenario 5 in the sim-day proposal has been recomputed (SV 35, CI 2.1, PVR 8.33, SVR 1089, SvO2 56 percent).
+19. The v2022 deck teaches tamponade as loss of the x and y descents (slides 308, 309); only the y is lost. The PAC deck's Module 8 answer grid pairs RV 45 with PA 30 without pulmonic stenosis and fails to equalise RAP and wedge in tamponade. Scenario 5 in the sim-day proposal has been recomputed (SV 35, CI 2.1, PVR 8.33, SVR 1089, SvO2 56 percent).
 
 What happens next is a clean rebuild of hemosim.org on Wix from these pages, with cross-links, editable content, quizzes, progress tracking, a blog and an authors page in the design from the start. Nothing on the live site is touched until the new site is ready, and the existing site is archived first.
 
