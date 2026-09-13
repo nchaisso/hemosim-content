@@ -125,8 +125,7 @@ def pmc_of(pmids):
     return found
 
 
-pages = sys.argv[1:] or ['i%d' % n for n in (1, 2, 3, 4, 5, 6, 7, 8, 9, 11,
-                                             12, 13, 14, 15, 16)]
+pages = sys.argv[1:] or ['i%d' % n for n in range(1, 18)]   # all seventeen Informed pages, 2026-09-12
 all_rows, problems, by_doi = [], [], {}
 
 for p in pages:

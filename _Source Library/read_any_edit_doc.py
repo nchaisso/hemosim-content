@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Generic edit-doc reader by path: inline tracked changes, comments with anchors, images.
+# Generic edit-doc reader by path: inline tracked changes (tagged N: for Neal, G: for Gustavo), comments with anchors, images.
 import re, sys, zipfile, html
 
 def runs(frag, tag='w:t'):
@@ -19,12 +19,16 @@ def inline(para, comments):
         plain = runs(para[pos:m.start()])
         if plain:
             out.append(plain)
-        if m.group(1) == 'ins':
-            t = runs(m.group(0))
-            if t: out.append('{+' + t + '+}')
-        elif m.group(1) == 'del':
-            t = runs(m.group(0), 'w:delText')
-            if t: out.append('{-' + t + '-}')
+        if m.group(1) in ('ins', 'del'):
+            a = re.search(r'w:author="([^"]*)"', m.group(0))
+            a = a.group(1) if a else ''
+            who = 'N:' if 'neal' in a.lower() else ('G:' if 'gustavo' in a.lower() or 'GG ' in a else '')
+            if m.group(1) == 'ins':
+                t = runs(m.group(0))
+                if t: out.append('{+' + who + t + '+}')
+            else:
+                t = runs(m.group(0), 'w:delText')
+                if t: out.append('{-' + who + t + '-}')
         elif m.group(2):
             out.append('[[C%s>>' % m.group(2))
         elif m.group(3):
