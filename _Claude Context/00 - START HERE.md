@@ -1,6 +1,6 @@
 # START HERE
 
-Orientation and current status for HemoSim. Last updated: 2026-09-13.
+Orientation and current status for HemoSim. Last updated: 2026-09-20.
 
 This file holds **current state only**. Standing rules live in two files that load
 automatically: `~/.claude/CLAUDE.md` for the global ones and `CLAUDE.md` at this
@@ -122,10 +122,12 @@ reference folders are excluded. See file 03.
 
 ## Next step
 
-The Informed review pass is complete and pushed (2026-09-13). Next is the
-native Wix build, in the phases of file 05: archive the live site first, then a
-working site from the Novice and Core pages. The email of open items for
-Gustavo is at the project root, `Email to Gustavo - 2026-09-13.md`. Neal's
+The Core review pass is complete and pushed. Every figure Gustavo pasted into an
+edit doc is on its page and credited to him, including on I7 and I17, where his
+originals replaced the SVG redraws on 2026-09-13. Next is the native Wix build,
+in the phases of file 05: archive the live site first, then a working site from
+the Novice and Core pages. Neal sent Gustavo the open-items email on 2026-09-13
+and no reply has been logged. Neal's
 decisions on the per-module DECISION lines, the Expert pathway (E1 to E8), the
 four N7 topic subpages and the remaining N2, N5 and N6 figure placeholders
 follow.
