@@ -97,6 +97,14 @@ Replacing manual version numbers is what git is *for*. The alternative workflow:
 
 ## Notes and open items
 
+- **The GitHub repo was replaced on 2026-09-21.** Ahead of going public, a file
+  unrelated to HemoSim was stripped from every commit, which rewrote all commit
+  IDs. Because GitHub keeps orphaned commits retrievable by ID after a force
+  push, the clean history was pushed to a newly created `hemosim-content`, and
+  the original repo was renamed `hemosim-content-old` and stays private. Never
+  make `hemosim-content-old` public. Commit IDs quoted in notes written before
+  this date refer to the old history.
+
 - **One computer.** Git and Dropbox both version files and do not coordinate. On a single machine this is fine. If a second Mac ever enters the picture, revisit this, because Dropbox syncing the `.git` folder mid-operation across two machines can corrupt it.
 - **Standing preference:** Claude confirms which folders to include before each commit, since what matters may change over time.
 - A `CLAUDE.md` at a folder's root loads automatically at the start of every session, whereas the files in `_Claude Context/` do not. That is why the read order is stated in `CLAUDE.md` rather than only here.
