@@ -4,7 +4,7 @@ The working library behind [HemoSim](https://github.com/nchaisso/hemosim-web), a
 modular, case-based curriculum in bedside hemodynamics for clinicians who care
 for patients in shock.
 
-If you want to read the curriculum, go to
+If you want to read the actual curriculum, go to
 [hemosim-web](https://github.com/nchaisso/hemosim-web). This repository is the
 workshop: the review documents, the curriculum outline, the project notes, and
 the scripts that move content between them and the web pages. It is public so
@@ -46,9 +46,8 @@ still use the old word. Wherever you see "Informed" or an `I` prefix here, read
 
 ### What is deliberately not here
 
-The slide decks, journal PDFs, and other reference material that originally
-guided the build are not tracked. They are large, they rarely change, and much
-of the material is under third-party copyright. Superseded drafts, including
+The slide decks, journal PDFs, Notion pages, and other reference material that originally
+guided the build are not tracked. Superseded drafts, including
 earlier outline versions and reviewers' marked-up originals whose edits have
 already been applied, are also kept out so that what you see here matches the
 current site.
@@ -103,8 +102,7 @@ it.
 
 ## How it was built
 
-The pages and tooling were produced with the help of Claude, an AI assistant
-from Anthropic, working under physician direction, followed by line-by-line
+The pages and tooling were produced with the help of Claude from previously written human content, working under physician direction, followed by line-by-line
 review from critical care physicians. `CLAUDE.md` and `_Claude Context/` are that
 assistant's working instructions and notes. They are left in place for
 transparency about the process, and they are written for the assistant, so
