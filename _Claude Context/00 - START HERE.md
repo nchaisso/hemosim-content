@@ -121,6 +121,15 @@ improvising.
 private repo `hemosim-content`. Working documents are tracked, the large
 reference folders are excluded. See file 03.
 
+**Both repos are public as of 2026-09-21.** `hemosim-content` was replaced by a
+fresh repo of the same name with a cleaned history (file 03 has the detail), and
+`hemosim-web` is also served live at https://nchaisso.github.io/hemosim-web/.
+Every push is publication. Before tracking any new file here, confirm it belongs
+in public view: nothing unrelated to HemoSim, and no superseded drafts. Each repo
+has a `README.md` written for an outside reader. The reviewers' returned
+documents in `Module Edit Docs/Gustavo files/` are on disk and untracked, and
+remain recoverable from commit `8014d21`.
+
 ## Next step
 
 The Core review pass is complete and pushed. Every figure Gustavo pasted into an
