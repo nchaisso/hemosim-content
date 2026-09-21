@@ -13,6 +13,13 @@ Salient articles for hemodynamics (not for course)/
 # Archived — live version is the GitHub hemosim-web repo
 web-pilot (ARCHIVED 2026-07-25 - live version is GitHub hemosim-web)/
 
+# Superseded outline versions stay on disk. Only v8 is tracked.
+Hemosim COntent Outlines for Wix Build/*
+!Hemosim COntent Outlines for Wix Build/HemoSim Content Outline by Expertise Level (v8).docx
+
+# Local tool configuration
+.claude/settings.local.json
+
 # macOS and Word noise
 .DS_Store
 ~$*

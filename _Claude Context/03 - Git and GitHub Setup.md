@@ -93,6 +93,8 @@ Replacing manual version numbers is what git is *for*. The alternative workflow:
 
 **Decision made July 28, 2026:** deferred. Keep v1 through v8, build the commit habit first, revisit later. Clutter costs nothing.
 
+**Revised 2026-09-20:** ahead of making the repo public, Neal chose to track v8 only. The earlier versions stay on disk and are ignored by git, because eight near-identical outlines would confuse an outside reader.
+
 ## Notes and open items
 
 - **One computer.** Git and Dropbox both version files and do not coordinate. On a single machine this is fine. If a second Mac ever enters the picture, revisit this, because Dropbox syncing the `.git` folder mid-operation across two machines can corrupt it.
