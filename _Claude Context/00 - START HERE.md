@@ -104,7 +104,8 @@ carry Neal's (I1, I2) and Gustavo's (all) reviewed edits, I13 was rebuilt from
 Gustavo's full rewrite, every page lints at 0 problems, and every reference
 resolves in PubMed. The edit docs in `Module Edit Docs/I*.docx` were regenerated
 from the finished pages; the reviewed originals stay in
-`Module Edit Docs/Gustavo files/` (untracked, 80 MB). What each page still owes
+`Module Edit Docs/Gustavo files/` (80 MB, on disk only: tracked briefly on
+2026-09-20, then untracked the same day ahead of making the repo public). What each page still owes
 Neal is in `Module Edit Docs/_issues/I<N>.md` as DECISION lines, collected in the
 handoff.
 
