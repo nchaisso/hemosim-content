@@ -189,6 +189,10 @@ re-crawling is usually unnecessary.
 - Naming: Interface III is "Capillaries to Right Atrium". Interface IV is "RV to LA".
 - Normotensive shock, pulse pressure, and etiology-versus-phenotype belong to the
   Informed "At the Bedside" module, deliberately kept out of the simple Novice grid.
+- **Re-level and re-zero rule (Neal, 2026-09-24, shared with PACEP).** Re-level after
+  any change in patient position. Re-zero after any cable, transducer, or monitor
+  change, at least once a shift, and whenever a value is not believable. N7 Topic 1
+  states it (hemosim-web commit f28ba03); the PACEP item keys follow it.
 
 The writing standard, the figure rules, and the answer-capture design are build
 decisions and live in file 02, under "Content standards" and "Linking one
